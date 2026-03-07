@@ -12,7 +12,7 @@
       font-family:'Jost',sans-serif;
       background:var(--cream);
       color:var(--deep);
-      overflow-x:hidden;
+      overflow-x: hidden !important;
     }
 
     /* ── NAVBAR ── */
