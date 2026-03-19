@@ -11297,7 +11297,6 @@ textarea::-ms-input-placeholder {
 .error-wrap h2 strong,
 .gradient-color {
   background: linear-gradient(270deg, #dc5dde, #fc252c 53.3%, #faa365);
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 a#scrollUp {
@@ -12839,7 +12838,6 @@ a#scrollUp:after {
 .widget.recent-post .single-feature .sf-text .sf-meta i {
   margin-right: 5px;
   background: linear-gradient(123deg, #dc5dde, #fc252c 53.3%, #faa365);
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .widget.recent-post .single-feature .sf-text .sf-meta:hover {
@@ -13981,7 +13979,6 @@ a#scrollUp:after {
 .post-entry .post-content i {
   margin-right: 10px;
   background: linear-gradient(123deg, #dc5dde, #fc252c 53.3%, #faa365);
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 @media only screen and (max-width: 767px) {
@@ -14038,7 +14035,6 @@ a#scrollUp:after {
 }
 .single-post .post-meta span i {
   background: linear-gradient(270deg, #dc5dde, #fc252c 53.3%, #faa365);
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .single-post .h1,
@@ -14418,7 +14414,6 @@ form.form.checkout-form .form-group select {
   font-size: 65px;
   color: transparent;
   -webkit-text-stroke: 2px #fc252c;
-  text-stroke: 2px #fc252c;
 }
 .fact-counter .h4,
 .fact-counter h4 {
