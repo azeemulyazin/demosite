@@ -12196,28 +12196,16 @@ a#scrollUp:after {
   }
 }
 .shop-cart a {
-  color: #fff;
+  margin-top: 15px;
+  padding: 2px 20px;
+  border: 1px solid #a24c0e;
+  border-radius: 50px;
 }
 .shop-cart .btn {
   padding: 13px 35px;
 }
-.shop-cart a:last-child {
-  width: 58px;
-  height: 58px;
-  line-height: 58px;
-  background-color: #fff;
-  position: relative;
-  margin-left: 30px;
-}
-.shop-cart a:last-child,
-.shop-cart a:last-child sup {
-  display: inline-block;
-  text-align: center;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  border-radius: 50%;
-}
+
+
 .shop-cart a:last-child sup {
   position: absolute;
   right: 0;
@@ -12302,7 +12290,7 @@ a#scrollUp:after {
 .product-entry2 .price-meta:before,
 .product-entry .price-meta:before {
   background-color: transparent;
-  content: "/";
+  content: "";
   top: -5px;
   left: 5px;
 }
