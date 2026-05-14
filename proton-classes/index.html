@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Proton Classes – Leading Entrance Coaching in Kerala</title>
+  <link rel="icon" href="img/favicon.png" type="image/png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <style>
+    :root {
+      --blue: #1a6bff;
+      --blue-dark: #0d4fd6;
+      --blue-light: #e8f0ff;
+      --blue-mid: #3a7fff;
+      --black: #0a0a0a;
+      --gray: #6b7280;
+      --light: #f8faff;
+      --white: #ffffff;
+      --border: #dce8ff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(26,107,255,0.06);
+    }
+    .navbar-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--blue) !important;
+      letter-spacing: -0.5px;
+    }
+    .navbar-brand span { color: var(--black); }
+    .nav-link {
+      color: var(--black) !important;
+      font-weight: 500;
+      font-size: 0.92rem;
+      padding: 6px 14px !important;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    .nav-link:hover { color: var(--blue) !important; background: var(--blue-light); }
+    .nav-cta {
+      background: var(--blue) !important;
+      color: #fff !important;
+      border-radius: 8px !important;
+      padding: 8px 20px !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--blue-dark) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 92vh;
+      background: linear-gradient(135deg, #f0f6ff 0%, #ffffff 55%, #e8f0ff 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(26,107,255,0.10) 0%, transparent 70%);
+      top: -180px; right: -180px;
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(26,107,255,0.07) 0%, transparent 70%);
+      bottom: -100px; left: -100px;
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--blue-light);
+      color: var(--blue);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      padding: 6px 18px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 22px;
+    }
+    .hero-badge .dot {
+      width: 8px; height: 8px;
+      background: var(--blue);
+      border-radius: 50%;
+      animation: pulse 1.8s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 900;
+      line-height: 1.12;
+      color: var(--black);
+      margin-bottom: 18px;
+    }
+    .hero h1 .highlight { color: var(--blue); }
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--gray);
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 36px;
+    }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary-custom {
+      background: var(--blue);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 14px 32px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.25s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 20px rgba(26,107,255,0.28);
+    }
+    .btn-primary-custom:hover {
+      background: var(--blue-dark);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(26,107,255,0.38);
+    }
+    .btn-outline-custom {
+      background: transparent;
+      color: var(--blue);
+      border: 2px solid var(--blue);
+      border-radius: 10px;
+      padding: 13px 28px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.25s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-outline-custom:hover {
+      background: var(--blue);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .hero-stats {
+      display: flex;
+      gap: 36px;
+      margin-top: 46px;
+      flex-wrap: wrap;
+    }
+    .stat-item { text-align: left; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--blue);
+      display: block;
+      line-height: 1;
+    }
+    .stat-label { font-size: 0.8rem; color: var(--gray); font-weight: 500; margin-top: 3px; }
+    .hero-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-card-main {
+      background: #fff;
+      border-radius: 24px;
+      padding: 36px;
+      box-shadow: 0 20px 60px rgba(26,107,255,0.12);
+      border: 1px solid var(--border);
+      width: 100%;
+      max-width: 400px;
+      position: relative;
+    }
+    .hero-card-main::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 25px;
+      background: linear-gradient(135deg, var(--blue), transparent, transparent);
+      z-index: -1;
+    }
+    .course-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--blue-light);
+      border-radius: 50px;
+      padding: 8px 16px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--blue);
+      margin-bottom: 8px;
+      border: 1px solid var(--border);
+      width: 100%;
+    }
+    .course-pill i { font-size: 1rem; }
+    .floating-chip {
+      position: absolute;
+      background: #fff;
+      border-radius: 12px;
+      padding: 10px 16px;
+      box-shadow: 0 8px 30px rgba(26,107,255,0.14);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--black);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+    .chip1 { top: -18px; right: -24px; animation: float1 3s ease-in-out infinite; }
+    .chip2 { bottom: 30px; left: -30px; animation: float2 3.5s ease-in-out infinite; }
+    @keyframes float1 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+    @keyframes float2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(8px)} }
+
+    /* ── SECTION COMMON ── */
+    section { padding: 90px 0; }
+    .section-tag {
+      display: inline-block;
+      background: var(--blue-light);
+      color: var(--blue);
+      border-radius: 50px;
+      padding: 5px 18px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      border: 1px solid var(--border);
+    }
+    .section-title {
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      font-weight: 900;
+      color: var(--black);
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+    .section-title .highlight { color: var(--blue); }
+    .section-sub { color: var(--gray); font-size: 1rem; line-height: 1.7; max-width: 580px; }
+
+    /* ── ABOUT ── */
+    .about { background: var(--white); }
+    .about-img-block {
+      position: relative;
+    }
+    .about-img-inner {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+      border-radius: 24px;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .about-img-inner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1.5" fill="rgba(255,255,255,0.15)"/></pattern></defs><rect fill="url(%23g)" width="400" height="300"/></svg>');
+      background-size: 40px 40px;
+    }
+    .about-icon-big {
+      font-size: 6rem;
+      color: rgba(255,255,255,0.18);
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+    }
+    .about-central-text {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #fff;
+      padding: 30px;
+    }
+    .about-central-text h3 {
+      font-size: 2.2rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+    .about-central-text p { font-size: 0.95rem; opacity: 0.88; }
+    .about-badge-float {
+      position: absolute;
+      bottom: -22px;
+      left: 30px;
+      background: #fff;
+      border-radius: 14px;
+      padding: 14px 20px;
+      box-shadow: 0 10px 30px rgba(26,107,255,0.16);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid var(--border);
+    }
+    .about-badge-float .icon-wrap {
+      width: 42px; height: 42px;
+      background: var(--blue-light);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: var(--blue);
+    }
+    .about-badge-float strong { font-size: 1.2rem; color: var(--blue); font-family: 'Playfair Display', serif; }
+    .about-badge-float span { font-size: 0.75rem; color: var(--gray); display: block; }
+    .about-feature {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 20px;
+      align-items: flex-start;
+    }
+    .about-feature .icon {
+      width: 44px; height: 44px;
+      background: var(--blue-light);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: var(--blue);
+      flex-shrink: 0;
+      border: 1px solid var(--border);
+    }
+    .about-feature h6 { font-size: 0.95rem; font-weight: 600; margin-bottom: 3px; font-family: 'DM Sans', sans-serif; }
+    .about-feature p { font-size: 0.85rem; color: var(--gray); margin: 0; line-height: 1.55; }
+
+    /* ── COURSES ── */
+    .courses { background: var(--light); }
+    .course-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 32px 26px;
+      border: 1px solid var(--border);
+      height: 100%;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .course-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--blue);
+      border-radius: 20px 20px 0 0;
+      transform: scaleX(0);
+      transition: transform 0.3s;
+      transform-origin: left;
+    }
+    .course-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(26,107,255,0.12); }
+    .course-card:hover::before { transform: scaleX(1); }
+    .course-card.featured { border-color: var(--blue); box-shadow: 0 8px 30px rgba(26,107,255,0.12); }
+    .course-card.featured::before { transform: scaleX(1); }
+    .course-icon {
+      width: 58px; height: 58px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 18px;
+    }
+    .ci-blue { background: var(--blue-light); color: var(--blue); border: 1px solid var(--border); }
+    .ci-solid { background: var(--blue); color: #fff; }
+    .course-card h4 {
+      font-size: 1.15rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+    .course-card p { font-size: 0.87rem; color: var(--gray); line-height: 1.6; margin-bottom: 18px; }
+    .course-tag {
+      display: inline-block;
+      background: var(--blue-light);
+      color: var(--blue);
+      border-radius: 50px;
+      padding: 3px 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      margin-right: 4px;
+      margin-bottom: 4px;
+    }
+    .featured-ribbon {
+      position: absolute;
+      top: 16px; right: -30px;
+      background: var(--blue);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 4px 36px;
+      transform: rotate(45deg);
+      letter-spacing: 1px;
+    }
+
+    /* ── WHY CHOOSE US ── */
+    .why { background: var(--white); }
+    .why-card {
+      background: var(--light);
+      border-radius: 18px;
+      padding: 28px 22px;
+      border: 1px solid var(--border);
+      height: 100%;
+      transition: all 0.3s;
+      text-align: center;
+    }
+    .why-card:hover { background: var(--blue); transform: translateY(-4px); box-shadow: 0 12px 35px rgba(26,107,255,0.22); }
+    .why-card:hover .why-icon { background: rgba(255,255,255,0.2); color: #fff; border-color: rgba(255,255,255,0.3); }
+    .why-card:hover h5, .why-card:hover p { color: #fff !important; }
+    .why-icon {
+      width: 64px; height: 64px;
+      border-radius: 16px;
+      background: var(--blue-light);
+      color: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin: 0 auto 16px;
+      border: 1px solid var(--border);
+      transition: all 0.3s;
+    }
+    .why-card h5 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; font-family: 'DM Sans', sans-serif; transition: color 0.3s; }
+    .why-card p { font-size: 0.84rem; color: var(--gray); line-height: 1.6; margin: 0; transition: color 0.3s; }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+      top: -300px; right: -200px;
+    }
+    .cta-section::after {
+      content: '';
+      position: absolute;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+      bottom: -200px; left: -100px;
+    }
+    .cta-section .section-title { color: #fff; }
+    .cta-section p { color: rgba(255,255,255,0.82); font-size: 1.05rem; line-height: 1.7; }
+    .contact-card {
+      background: rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      border: 1px solid rgba(255,255,255,0.18);
+      backdrop-filter: blur(8px);
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+    .contact-card:hover { background: rgba(255,255,255,0.18); transform: translateX(4px); }
+    .contact-card .icon {
+      width: 48px; height: 48px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .contact-card .label { font-size: 0.75rem; color: rgba(255,255,255,0.65); font-weight: 500; display: block; }
+    .contact-card .value { font-size: 1rem; color: #fff; font-weight: 700; }
+    .btn-white {
+      background: #fff;
+      color: var(--blue);
+      border: none;
+      border-radius: 10px;
+      padding: 14px 32px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    }
+    .btn-white:hover { background: var(--blue-light); color: var(--blue-dark); transform: translateY(-2px); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #060e1f;
+      color: rgba(255,255,255,0.75);
+      padding: 60px 0 30px;
+    }
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: #fff;
+    }
+    .footer-brand span { color: var(--blue-mid); }
+    footer p { font-size: 0.88rem; line-height: 1.7; color: rgba(255,255,255,0.55); }
+    .footer-heading { font-size: 0.85rem; font-weight: 700; color: #fff; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; }
+    .footer-link {
+      display: block;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      font-size: 0.88rem;
+      padding: 4px 0;
+      transition: color 0.2s;
+    }
+    .footer-link:hover { color: var(--blue-mid); }
+    .footer-divider { border-color: rgba(255,255,255,0.08); margin: 36px 0 24px; }
+    .footer-bottom { font-size: 0.82rem; color: rgba(255,255,255,0.4); }
+    .social-btn {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.07);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: all 0.2s;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .social-btn:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
+
+    /* ── DIVIDER DOT ── */
+    .dot-divider { color: var(--blue); margin: 0 8px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      section { padding: 60px 0; }
+      .hero { min-height: auto; padding: 80px 0 50px; }
+      .hero-stats { gap: 24px; }
+      .about-badge-float { display: none; }
+      .floating-chip { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════ NAVBAR ═══════════ -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><img src="img/proton-logo.png" alt="" height="80"></a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
+        <li class="nav-item"><a class="nav-link" href="#why">Why Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item ms-2">
+          <a class="nav-link nav-cta" href="tel:+919847624397">
+            <i class="bi bi-telephone-fill me-1"></i> Call Now
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6" data-aos="fade-right">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          Kerala's Leading Entrance Coaching
+        </div>
+        <h1>
+          Shape Your Future<br>
+          with <span class="highlight">Proton Classes</span>
+        </h1>
+        <p>
+          Integrated coaching for Plus One, Plus Two & Classes 8–10 in Science and Commerce streams.
+          Expert faculty, structured curriculum, and proven results for NEET, JEE &amp; board exams.
+        </p>
+        <div class="hero-btns">
+          <a href="#courses" class="btn-primary-custom">
+            <i class="bi bi-mortarboard-fill"></i> Explore Courses
+          </a>
+          <a href="tel:+919847624397" class="btn-outline-custom">
+            <i class="bi bi-telephone"></i> +91 98476 24397
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-num">500+</span>
+            <span class="stat-label">Students Enrolled</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">95%</span>
+            <span class="stat-label">Board Pass Rate</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">10+</span>
+            <span class="stat-label">Years of Excellence</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="hero-visual">
+          <div class="hero-card-main">
+            <p class="text-muted mb-3" style="font-size:0.8rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Our Programmes</p>
+            <div class="course-pill"><i class="bi bi-flask"></i> +1 & +2 Science Stream</div>
+            <div class="course-pill"><i class="bi bi-bar-chart-line"></i> +1 & +2 Commerce Stream</div>
+            <div class="course-pill"><i class="bi bi-hospital"></i> NEET Repeat Batch</div>
+            <div class="course-pill"><i class="bi bi-gear"></i> JEE Repeat Batch</div>
+            <div class="course-pill"><i class="bi bi-book"></i> Classes 8, 9 & 10</div>
+            <div class="mt-20 mt-3 pt-2 border-top" style="border-color:var(--border)!important;">
+              <div class="d-flex align-items-center gap-2">
+                <div style="width:10px;height:10px;background:var(--blue);border-radius:50%;animation:pulse 1.8s infinite;flex-shrink:0;"></div>
+                <span style="font-size:0.82rem;font-weight:600;color:var(--blue);">Admissions Open 2025–26</span>
+              </div>
+            </div>
+          </div>
+          <div class="floating-chip chip1">
+            <i class="bi bi-star-fill" style="color:#fbbf24;"></i> Top Results in Kerala
+          </div>
+          <div class="floating-chip chip2">
+            <i class="bi bi-people-fill" style="color:var(--blue);"></i> Expert Faculty
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ABOUT ═══════════ -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5">
+        <div class="about-img-block">
+          <div class="about-img-inner">
+            <div class="about-central-text">
+              <h3>Proton<br>Classes</h3>
+              <p>Entrance-Oriented Coaching<br>Since 2014</p>
+            </div>
+            <i class="bi bi-mortarboard about-icon-big"></i>
+          </div>
+          <div class="about-badge-float">
+            <div class="icon-wrap"><i class="bi bi-trophy-fill"></i></div>
+            <div>
+              <strong>Kerala's Best</strong>
+              <span>Entrance Coaching</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="section-tag">About Us</div>
+        <h2 class="section-title">Excellence in <span class="highlight">Entrance Coaching</span><br>Across Kerala</h2>
+        <p class="section-sub mb-4">
+          Proton Classes is one of the leading entrance-oriented coaching centers in Kerala, offering integrated coaching for Plus One and Plus Two students in both Science and Commerce streams. Known for its excellent academic support, experienced faculty, and consistent top results, Proton Classes helps students prepare effectively for board exams as well as competitive entrance exams.
+        </p>
+        <div class="about-feature">
+          <div class="icon"><i class="bi bi-person-workspace"></i></div>
+          <div>
+            <h6>Experienced Faculty</h6>
+            <p>Handpicked experts with deep subject knowledge and a passion for teaching. Our educators bring years of coaching experience to every classroom session.</p>
+          </div>
+        </div>
+        <div class="about-feature">
+          <div class="icon"><i class="bi bi-clipboard2-data"></i></div>
+          <div>
+            <h6>Board + Entrance Integration</h6>
+            <p>Our unique curriculum blends Kerala Board preparation with NEET, JEE and other competitive exam training — no need for separate institutes.</p>
+          </div>
+        </div>
+        <div class="about-feature">
+          <div class="icon"><i class="bi bi-graph-up-arrow"></i></div>
+          <div>
+            <h6>Consistent Top Results</h6>
+            <p>Year after year, Proton students rank among the top performers in board exams and entrance tests across Kerala, reflecting our commitment to quality education.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ COURSES ═══════════ -->
+<section class="courses" id="courses">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="section-tag">Our Programmes</div>
+      <h2 class="section-title">Courses We <span class="highlight">Offer</span></h2>
+      <p class="section-sub mx-auto">Choose your path — from foundation classes to advanced entrance preparation. Every batch is designed to maximize your academic potential.</p>
+    </div>
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-4">
+        <div class="course-card featured">
+          <div class="featured-ribbon">Popular</div>
+          <div class="course-icon ci-solid"><i class="bi bi-flask-fill"></i></div>
+          <h4>+1 & +2 Science Stream</h4>
+          <p>Integrated coaching for Physics, Chemistry, Biology and Mathematics alongside Kerala Board curriculum. Ideal for students targeting NEET and JEE.</p>
+          <div>
+            <span class="course-tag">Physics</span>
+            <span class="course-tag">Chemistry</span>
+            <span class="course-tag">Biology</span>
+            <span class="course-tag">Maths</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="course-card">
+          <div class="course-icon ci-blue"><i class="bi bi-bar-chart-line-fill"></i></div>
+          <h4>+1 & +2 Commerce Stream</h4>
+          <p>Comprehensive coaching for Accountancy, Business Studies, Economics, and Computer Science with strong board exam and entrance preparation support.</p>
+          <div>
+            <span class="course-tag">Accountancy</span>
+            <span class="course-tag">Business Studies</span>
+            <span class="course-tag">Economics</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="course-card featured">
+          <div class="featured-ribbon">Top Pick</div>
+          <div class="course-icon ci-solid"><i class="bi bi-hospital-fill"></i></div>
+          <h4>NEET Repeat Batch</h4>
+          <p>Specially designed for students who want to improve their NEET score. Intensive revision, mock tests, and personal mentoring by experienced Biology & Chemistry faculty.</p>
+          <div>
+            <span class="course-tag">Biology</span>
+            <span class="course-tag">Chemistry</span>
+            <span class="course-tag">Physics</span>
+            <span class="course-tag">Mock Tests</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="course-card">
+          <div class="course-icon ci-blue"><i class="bi bi-gear-wide-connected"></i></div>
+          <h4>JEE Repeat Batch</h4>
+          <p>Focused JEE Mains & Advanced coaching for repeaters. Problem-solving sessions, weekly tests, and expert doubt-clearing for Maths and Physics.</p>
+          <div>
+            <span class="course-tag">Maths</span>
+            <span class="course-tag">Physics</span>
+            <span class="course-tag">Chemistry</span>
+            <span class="course-tag">Weekly Tests</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="course-card">
+          <div class="course-icon ci-blue"><i class="bi bi-book-fill"></i></div>
+          <h4>Class 8, 9 & 10</h4>
+          <p>Foundation-level coaching for middle and high school students. Build strong concepts in Science, Maths, and Social Studies to excel in board exams and future entrance tests.</p>
+          <div>
+            <span class="course-tag">Science</span>
+            <span class="course-tag">Mathematics</span>
+            <span class="course-tag">Foundation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="course-card" style="background:linear-gradient(135deg,#f0f6ff,#e8f0ff);border-color:var(--blue);">
+          <div class="course-icon ci-solid"><i class="bi bi-building-fill-check"></i></div>
+          <h4>+1/+2 Integrated School</h4>
+          <p>A complete integrated school model where regular school education and entrance coaching go hand in hand. No compromise on either board exams or competitive preparation.</p>
+          <div>
+            <span class="course-tag">Integrated</span>
+            <span class="course-tag">Science</span>
+            <span class="course-tag">Commerce</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ WHY CHOOSE US ═══════════ -->
+<section class="why" id="why">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="section-tag">Why Proton</div>
+      <h2 class="section-title">Why Students <span class="highlight">Choose Us</span></h2>
+      <p class="section-sub mx-auto">We go beyond textbooks to build confident, competitive, and career-ready students with a holistic coaching approach.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-sm-6 col-lg-3">
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-patch-check-fill"></i></div>
+          <h5>Expert Faculty</h5>
+          <p>Highly qualified and experienced teachers dedicated to student success in both board and entrance exams.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-layout-text-window-reverse"></i></div>
+          <h5>Integrated Curriculum</h5>
+          <p>Seamlessly covers Kerala Board syllabus and competitive exam content in one structured programme.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-file-earmark-ruled-fill"></i></div>
+          <h5>Regular Mock Tests</h5>
+          <p>Frequent practice tests and analysis sessions to keep students exam-ready and confident throughout the year.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-person-lines-fill"></i></div>
+          <h5>Personal Mentoring</h5>
+          <p>One-on-one guidance to track progress, address weaknesses, and motivate every student personally.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-trophy-fill"></i></div>
+          <h5>Top Rankers</h5>
+          <p>Our students consistently achieve top ranks in NEET, JEE, and board exams across Kerala every year.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-clock-history"></i></div>
+          <h5>Flexible Batches</h5>
+          <p>Morning, afternoon, and weekend batch options for school students and repeat exam candidates.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-chat-dots-fill"></i></div>
+          <h5>Doubt Clearing Sessions</h5>
+          <p>Dedicated doubt-clearing classes so no student is left confused. Concept clarity is our priority.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-geo-alt-fill"></i></div>
+          <h5>Kerala Focused</h5>
+          <p>Deep understanding of Kerala CEE, board patterns, and local student needs to tailor our teaching approach.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CTA ═══════════ -->
+<section class="cta-section py-5" id="contact">
+  <div class="container py-4">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6" style="position:relative;z-index:2;">
+        <div class="section-tag" style="background:rgba(255,255,255,0.15);color:#fff;border-color:rgba(255,255,255,0.25);">Get In Touch</div>
+        <h2 class="section-title">Ready to Begin<br>Your <span style="color:rgba(255,255,255,0.7);">Success Journey?</span></h2>
+        <p class="mb-4">Join hundreds of students who've transformed their academic future with Proton Classes. Reach out to us today and take the first step towards your dream career.</p>
+        <a href="mailto:chevayoorproton@gmail.com" class="btn-white">
+          <i class="bi bi-envelope-fill"></i> Send Us an Email
+        </a>
+      </div>
+      <div class="col-lg-6" style="position:relative;z-index:2;">
+        <div class="d-flex flex-column gap-3">
+          <a href="tel:+919847624397" class="contact-card">
+            <div class="icon"><i class="bi bi-telephone-fill"></i></div>
+            <div>
+              <span class="label">Call Us Anytime</span>
+              <span class="value">+91 98476 24397</span>
+            </div>
+          </a>
+          <a href="mailto:chevayoorproton@gmail.com" class="contact-card">
+            <div class="icon"><i class="bi bi-envelope-fill"></i></div>
+            <div>
+              <span class="label">Email Us</span>
+              <span class="value">chevayoorproton@gmail.com</span>
+            </div>
+          </a>
+          <div class="contact-card" style="cursor:default;">
+            <div class="icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <div>
+              <span class="label">Location</span>
+              <span class="value">Chevayoor, Kozhikode, Kerala</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="container">
+    <div class="row g-5 mb-4">
+      <div class="col-lg-4">
+        <div class="footer-brand mb-3"><img src="img/proton-logo.png" alt="" height="80"></div>
+        <p class="mb-4">One of Kerala's leading entrance-oriented coaching centers, empowering students to achieve excellence in board exams and competitive entrances since 2014.</p>
+        <div class="d-flex gap-2">
+          <a href="#" class="social-btn"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-btn"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-btn"><i class="bi bi-youtube"></i></a>
+          <a href="#" class="social-btn"><i class="bi bi-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-2">
+        <div class="footer-heading">Quick Links</div>
+        <a href="#about" class="footer-link">About Us</a>
+        <a href="#courses" class="footer-link">Courses</a>
+        <a href="#why" class="footer-link">Why Proton</a>
+        <a href="#contact" class="footer-link">Contact</a>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="footer-heading">Programmes</div>
+        <a href="#courses" class="footer-link">+1 & +2 Science</a>
+        <a href="#courses" class="footer-link">+1 & +2 Commerce</a>
+        <a href="#courses" class="footer-link">NEET Repeat Batch</a>
+        <a href="#courses" class="footer-link">JEE Repeat Batch</a>
+        <a href="#courses" class="footer-link">Class 8, 9 & 10</a>
+      </div>
+      <div class="col-lg-3">
+        <div class="footer-heading">Contact</div>
+        <p class="mb-2"><i class="bi bi-telephone-fill me-2" style="color:var(--blue-mid);"></i>+91 98476 24397</p>
+        <p class="mb-2"><i class="bi bi-envelope-fill me-2" style="color:var(--blue-mid);"></i>chevayoorproton@gmail.com</p>
+        <p><i class="bi bi-geo-alt-fill me-2" style="color:var(--blue-mid);"></i>Chevayoor, Kozhikode, Kerala</p>
+      </div>
+    </div>
+    <hr class="footer-divider"/>
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+      <p class="footer-bottom mb-0">© 2026 Proton Classes. All rights reserved.</p>
+      <p class="footer-bottom mb-0">
+        +1/+2 Integrated School
+        <span class="dot-divider">•</span>
+        Science & Commerce
+        <span class="dot-divider">•</span>
+        NEET & JEE Coaching
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
