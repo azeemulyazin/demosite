@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Royal College of Science & Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#0F4C5C;
+    --teal-deep:#0A363F;
+    --coral:#FF6F61;
+    --sage:#E8F1F0;
+    --paper:#FAFBFB;
+    --ink:#1E2A2E;
+    --gold:#D4A574;
+    --line: rgba(15,76,92,0.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.6;
+  }
+  h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-0.01em;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+
+  /* ===== NAV ===== */
+  nav{
+    position:sticky;top:0;z-index:100;
+    background:rgba(250,251,251,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1200px;margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 24px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-weight:700;font-size:1.25rem;color:var(--teal-deep);}
+  .brand-mark{
+    width:34px;height:34px;border-radius:8px;
+    background:conic-gradient(from 180deg, var(--coral), var(--gold), var(--teal), var(--coral));
+    flex-shrink:0;
+  }
+  .brand small{display:block;font-family:'Inter',sans-serif;font-weight:500;font-size:0.62rem;letter-spacing:0.12em;color:var(--coral);text-transform:uppercase;}
+  .nav-links{display:flex;gap:32px;font-size:0.92rem;font-weight:500;}
+  .nav-links a{color:var(--ink);opacity:0.75;transition:opacity .2s;}
+  .nav-links a:hover{opacity:1;color:var(--teal);}
+  .nav-cta{
+    background:var(--teal);color:#fff;padding:10px 22px;border-radius:999px;
+    font-size:0.88rem;font-weight:600;transition:background .2s;
+  }
+  .nav-cta:hover{background:var(--teal-deep);}
+  .nav-toggle{display:none;}
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(135deg, var(--teal-deep) 0%, var(--teal) 55%, #136578 100%);
+    color:#fff;
+  }
+  .hero-inner{
+    max-width:1200px;margin:0 auto;
+    padding:90px 24px 110px;
+    display:grid;grid-template-columns:1.1fr 0.9fr;gap:60px;align-items:center;
+  }
+  .hero-eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.08em;
+    color:var(--gold);text-transform:uppercase;margin-bottom:22px;
+  }
+  .hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);}
+  .hero h1{
+    font-size:clamp(2.4rem, 5vw, 4rem);
+    line-height:1.08;
+    margin-bottom:22px;
+  }
+  .hero h1 em{font-style:italic;color:var(--coral);}
+  .hero p.lead{
+    font-size:1.08rem;color:rgba(255,255,255,0.82);max-width:480px;margin-bottom:32px;
+  }
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px;}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:14px 28px;border-radius:999px;font-weight:600;font-size:0.95rem;
+    transition:transform .2s, box-shadow .2s, background .2s;
+    border:none;cursor:pointer;
+  }
+  .btn-primary{background:var(--coral);color:#fff;box-shadow:0 8px 24px rgba(255,111,97,0.35);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(255,111,97,0.45);}
+  .btn-ghost{background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.3);}
+  .btn-ghost:hover{background:rgba(255,255,255,0.16);}
+  .hero-stats{display:flex;gap:36px;}
+  .hero-stat strong{display:block;font-family:'Fraunces',serif;font-size:1.9rem;color:var(--gold);}
+  .hero-stat span{font-size:0.8rem;color:rgba(255,255,255,0.7);}
+
+  .hero-visual{
+    position:relative;aspect-ratio:1/1.05;
+    border-radius:24px;overflow:hidden;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.15);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .hero-visual .badge{
+    position:absolute;top:24px;right:24px;
+    background:var(--gold);color:var(--teal-deep);
+    font-family:'JetBrains Mono',monospace;font-size:0.7rem;font-weight:500;
+    padding:8px 14px;border-radius:999px;letter-spacing:0.05em;
+    box-shadow:0 6px 18px rgba(0,0,0,0.2);
+  }
+  .hero-visual-graphic{
+    width:80%;height:80%;position:relative;
+  }
+  .hero-visual-graphic svg{width:100%;height:100%;}
+
+  /* diagonal divider */
+  .hero-divider{
+    position:absolute;bottom:-1px;left:0;width:100%;height:80px;
+    background:var(--paper);
+    clip-path:polygon(0 100%, 100% 100%, 100% 40%, 0 100%);
+  }
+
+  /* ===== SECTION SHARED ===== */
+  section{padding:90px 24px;}
+  .section-inner{max-width:1200px;margin:0 auto;}
+  .section-head{max-width:640px;margin-bottom:56px;}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.08em;
+    color:var(--coral);text-transform:uppercase;margin-bottom:14px;display:block;
+  }
+  .section-head h2{font-size:clamp(1.8rem,4vw,2.6rem);color:var(--teal-deep);}
+  .section-head p{color:rgba(30,42,46,0.65);margin-top:14px;font-size:1.02rem;}
+
+  /* ===== ABOUT ===== */
+  .about{background:var(--paper);}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+  .about-img{
+    border-radius:20px;overflow:hidden;aspect-ratio:4/3;
+    background:var(--sage);
+    position:relative;
+    border:1px solid var(--line);
+  }
+  .about-img img{width:100%;height:100%;object-fit:cover;}
+  .about-tag{
+    position:absolute;bottom:20px;left:20px;
+    background:#fff;padding:14px 20px;border-radius:14px;
+    box-shadow:0 12px 32px rgba(15,76,92,0.15);
+    display:flex;align-items:center;gap:12px;
+  }
+  .about-tag strong{font-family:'Fraunces',serif;font-size:1.3rem;color:var(--teal);display:block;}
+  .about-tag span{font-size:0.78rem;color:rgba(30,42,46,0.6);}
+  .about-copy h3{font-size:1.9rem;color:var(--teal-deep);margin-bottom:18px;}
+  .about-copy p{color:rgba(30,42,46,0.7);margin-bottom:16px;}
+  .about-points{margin-top:28px;display:grid;gap:16px;}
+  .about-point{display:flex;gap:14px;align-items:flex-start;}
+  .about-point .dot{
+    width:38px;height:38px;border-radius:10px;background:var(--sage);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+    color:var(--teal);font-weight:700;font-family:'Fraunces',serif;
+  }
+  .about-point h4{font-size:1.02rem;margin-bottom:3px;color:var(--ink);}
+  .about-point p{font-size:0.9rem;color:rgba(30,42,46,0.6);margin:0;}
+
+  /* ===== COURSES ===== */
+  .courses{background:var(--sage);}
+  .course-stack{display:flex;flex-direction:column;gap:14px;}
+  .course-card{
+    display:grid;grid-template-columns:90px 1fr auto;align-items:center;gap:24px;
+    background:#fff;border-radius:16px;padding:22px 26px;
+    border:1px solid var(--line);
+    transition:transform .25s, box-shadow .25s, border-color .25s;
+  }
+  .course-card:hover{
+    transform:translateX(6px);
+    box-shadow:0 14px 36px rgba(15,76,92,0.1);
+    border-color:transparent;
+  }
+  .course-code{
+    font-family:'Fraunces',serif;font-weight:700;font-size:1.6rem;
+    color:#fff;width:64px;height:64px;border-radius:14px;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--teal);
+  }
+  .course-card:nth-child(2) .course-code{background:var(--coral);}
+  .course-card:nth-child(3) .course-code{background:var(--gold);}
+  .course-card:nth-child(4) .course-code{background:var(--teal-deep);}
+  .course-card:nth-child(5) .course-code{background:#5C8A93;}
+  .course-card:nth-child(6) .course-code{background:#C97B6E;}
+  .course-title{font-size:1.18rem;color:var(--teal-deep);margin-bottom:4px;}
+  .course-meta{font-size:0.86rem;color:rgba(30,42,46,0.6);}
+  .course-side{text-align:right;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--teal);}
+  .course-side span{display:block;color:rgba(30,42,46,0.5);font-family:'Inter',sans-serif;font-size:0.75rem;margin-top:2px;}
+
+  .courses-footnote{
+    margin-top:32px;display:flex;flex-wrap:wrap;gap:16px;
+  }
+  .footnote-chip{
+    background:#fff;border:1px solid var(--line);border-radius:999px;
+    padding:10px 18px;font-size:0.86rem;display:flex;align-items:center;gap:8px;
+    color:var(--teal-deep);font-weight:500;
+  }
+  .footnote-chip .ic{color:var(--coral);}
+
+  /* ===== WHY CHOOSE US ===== */
+  .why{background:var(--paper);}
+  .why-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1px;
+    background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden;
+  }
+  .why-card{background:#fff;padding:36px 30px;}
+  .why-card h4{font-size:1.15rem;color:var(--teal-deep);margin-bottom:10px;}
+  .why-card p{font-size:0.92rem;color:rgba(30,42,46,0.62);}
+  .why-icon{
+    width:46px;height:46px;border-radius:12px;background:var(--sage);
+    display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+    color:var(--teal);font-size:1.3rem;
+  }
+
+  /* ===== CTA ===== */
+  .cta{
+    background:linear-gradient(120deg, var(--teal-deep), var(--teal));
+    color:#fff;border-radius:28px;
+    margin:0 auto;max-width:1200px;
+    padding:64px 48px;
+    display:grid;grid-template-columns:1.3fr auto;gap:40px;align-items:center;
+    position:relative;overflow:hidden;
+  }
+  .cta::after{
+    content:'';position:absolute;right:-80px;top:-80px;width:280px;height:280px;
+    background:radial-gradient(circle, rgba(255,111,97,0.35), transparent 70%);
+  }
+  .cta h2{font-size:clamp(1.7rem,3.6vw,2.4rem);margin-bottom:12px;position:relative;z-index:1;}
+  .cta p{color:rgba(255,255,255,0.78);max-width:480px;position:relative;z-index:1;}
+  .cta-actions{display:flex;flex-direction:column;gap:14px;position:relative;z-index:1;}
+  .cta-contact{
+    display:flex;align-items:center;gap:10px;
+    font-family:'JetBrains Mono',monospace;font-size:0.95rem;
+    background:rgba(255,255,255,0.1);padding:12px 20px;border-radius:12px;
+    border:1px solid rgba(255,255,255,0.18);
+  }
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--ink);color:rgba(255,255,255,0.7);padding:64px 24px 30px;}
+  .footer-inner{max-width:1200px;margin:0 auto;}
+  .footer-grid{
+    display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;
+    padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,0.1);
+  }
+  .footer-brand .brand{color:#fff;}
+  .footer-brand p{margin-top:16px;font-size:0.9rem;color:rgba(255,255,255,0.55);max-width:280px;}
+  footer h5{font-family:'Inter',sans-serif;color:#fff;font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:18px;}
+  footer ul{list-style:none;display:grid;gap:10px;font-size:0.92rem;}
+  footer ul li a{color:rgba(255,255,255,0.65);transition:color .2s;}
+  footer ul li a:hover{color:var(--coral);}
+  .footer-bottom{
+    display:flex;justify-content:space-between;align-items:center;
+    padding-top:26px;font-size:0.82rem;color:rgba(255,255,255,0.45);flex-wrap:wrap;gap:12px;
+  }
+  .footer-bottom .tags{display:flex;gap:18px;}
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px){
+    .hero-inner{grid-template-columns:1fr;padding-top:50px;}
+    .hero-visual{order:-1;aspect-ratio:16/10;}
+    .about-grid{grid-template-columns:1fr;gap:40px;}
+    .nav-links{display:none;}
+    .cta{grid-template-columns:1fr;padding:44px 28px;}
+    .footer-grid{grid-template-columns:1fr 1fr;gap:36px;}
+    .footer-brand{grid-column:1/-1;}
+    .course-card{grid-template-columns:56px 1fr;gap:16px;}
+    .course-code{width:48px;height:48px;font-size:1.2rem;}
+    .course-side{grid-column:2;text-align:left;}
+  }
+  @media (max-width: 540px){
+    .hero-stats{gap:24px;}
+    .footer-grid{grid-template-columns:1fr;}
+    .hero-inner{padding:50px 20px 80px;}
+    section{padding:64px 20px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important;}
+    html{scroll-behavior:auto;}
+  }
+
+  :focus-visible{outline:2px solid var(--coral);outline-offset:3px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <img src="img/royal-logo.png" alt="Royal College of Science & Management" width="120" >
+    </a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#courses">Courses</a>
+      <a href="#why">Why Us</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="tel:+919544425670" class="nav-cta">Call Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-eyebrow">Admissions Open 2026–27 · Mannarkkad, Palakkad</span>
+      <h1>Build a <em>healthcare career</em> backed by real hospital training.</h1>
+      <p class="lead">Royal College of Science & Management is associated with Mother Care Hospital — giving our students hands-on clinical exposure from day one, in UGC-approved BSc programmes designed for tomorrow's healthcare workforce.</p>
+      <div class="hero-actions">
+        <a href="#courses" class="btn btn-primary">Explore Courses</a>
+        <a href="#contact" class="btn btn-ghost">Talk to Admissions</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><strong>6+</strong><span>Paramedical & Nursing Programmes</span></div>
+        <div class="hero-stat"><strong>1</strong><span>Associated Multi-Speciality Hospital</span></div>
+        <div class="hero-stat"><strong>UGC</strong><span>Approved Programmes</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <span class="badge">No.1 Girls College · RGU</span>
+      <div class="hero-visual-graphic">
+        <svg viewBox="0 0 320 340" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="40" y="120" width="240" height="180" rx="10" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.25)"/>
+          <rect x="60" y="60" width="140" height="60" rx="8" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.25)"/>
+          <!-- windows -->
+          <g fill="rgba(255,255,255,0.35)">
+            <rect x="60" y="145" width="22" height="22" rx="3"/>
+            <rect x="100" y="145" width="22" height="22" rx="3"/>
+            <rect x="140" y="145" width="22" height="22" rx="3"/>
+            <rect x="180" y="145" width="22" height="22" rx="3"/>
+            <rect x="220" y="145" width="22" height="22" rx="3"/>
+            <rect x="60" y="190" width="22" height="22" rx="3"/>
+            <rect x="100" y="190" width="22" height="22" rx="3"/>
+            <rect x="140" y="190" width="22" height="22" rx="3"/>
+            <rect x="180" y="190" width="22" height="22" rx="3"/>
+            <rect x="220" y="190" width="22" height="22" rx="3"/>
+            <rect x="60" y="235" width="22" height="22" rx="3"/>
+            <rect x="100" y="235" width="22" height="22" rx="3"/>
+            <rect x="180" y="235" width="22" height="22" rx="3"/>
+            <rect x="220" y="235" width="22" height="22" rx="3"/>
+          </g>
+          <!-- cross / medical -->
+          <g fill="#FF6F61">
+            <rect x="130" y="225" width="60" height="60" rx="8"/>
+          </g>
+          <g fill="#fff">
+            <rect x="153" y="237" width="14" height="36" rx="2"/>
+            <rect x="142" y="248" width="36" height="14" rx="2"/>
+          </g>
+          <!-- entrance -->
+          <rect x="140" y="270" width="40" height="30" fill="rgba(255,255,255,0.18)"/>
+          <!-- pulse line -->
+          <path d="M30 320 H110 L130 290 L150 340 L170 300 L190 320 H290" stroke="#D4A574" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="hero-divider"></div>
+</header>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-inner about-grid">
+    <div class="about-img">
+      <div style="width:100%;height:100%;background:linear-gradient(135deg,var(--sage),#cfe4e2);display:flex;align-items:center;justify-content:center;color:var(--teal);font-family:'Fraunces',serif;font-size:1.1rem;text-align:center;padding:20px;">
+        Mother Care Hospital — Clinical Training Campus
+      </div>
+      <div class="about-tag">
+        <div>
+          <strong>3+1</strong>
+          <span>Years incl. internship</span>
+        </div>
+      </div>
+    </div>
+    <div class="about-copy">
+      <span class="eyebrow">About Royal College</span>
+      <h3>Where classroom learning meets the hospital floor.</h3>
+      <p>Royal College of Science & Management trains the next generation of healthcare technologists and nurses through a curriculum built around real clinical environments — not just textbooks.</p>
+      <p>As the academic partner of Mother Care Hospital, every student gets structured exposure to operation theatres, diagnostic labs, dialysis units and patient care wards throughout their degree.</p>
+      <div class="about-points">
+        <div class="about-point">
+          <div class="dot">H</div>
+          <div><h4>Hospital-integrated learning</h4><p>Clinical training & internship inside Mother Care Hospital, our own multi-speciality facility.</p></div>
+        </div>
+        <div class="about-point">
+          <div class="dot">F</div>
+          <div><h4>Focused, girls-only campus</h4><p>Ranked No.1 girls-only college under Rajiv Gandhi University, with on-campus hostel facilities.</p></div>
+        </div>
+        <div class="about-point">
+          <div class="dot">P</div>
+          <div><h4>Placement-ready training</h4><p>Practical, skill-based teaching backed by expert faculty and career-oriented guidance.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section class="courses" id="courses">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="eyebrow">Programmes — Admissions 2026–27</span>
+      <h2>Six pathways into a healthcare career.</h2>
+      <p>All BSc programmes run 3 years plus a 1-year hospital internship. Eligibility: Plus Two with Biology (Science). GNM Nursing is a 3-year programme open to Plus Two graduates.</p>
+    </div>
+
+    <div class="course-stack">
+      <div class="course-card">
+        <div class="course-code">CC</div>
+        <div>
+          <div class="course-title">BSc Cardiac Care Technology</div>
+          <div class="course-meta">Cardiac monitoring, ECG & critical care diagnostics</div>
+        </div>
+        <div class="course-side">3+1 YRS<span>Plus Two Biology</span></div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-code">OT</div>
+        <div>
+          <div class="course-title">BSc Operation Theatre & Anaesthesia Technology</div>
+          <div class="course-meta">Surgical assistance, sterilisation & anaesthesia support</div>
+        </div>
+        <div class="course-side">3+1 YRS<span>Plus Two Biology</span></div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-code">DT</div>
+        <div>
+          <div class="course-title">BSc Dialysis Technology</div>
+          <div class="course-meta">Renal care, dialysis machine operation & patient monitoring</div>
+        </div>
+        <div class="course-side">3+1 YRS<span>Plus Two Biology</span></div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-code">MI</div>
+        <div>
+          <div class="course-title">BSc Medical Imaging Technology</div>
+          <div class="course-meta">X-ray, CT, MRI & ultrasound diagnostic imaging</div>
+        </div>
+        <div class="course-side">3+1 YRS<span>Plus Two Biology</span></div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-code">ML</div>
+        <div>
+          <div class="course-title">BSc Medical Laboratory Technology</div>
+          <div class="course-meta">Clinical pathology, microbiology & lab diagnostics</div>
+        </div>
+        <div class="course-side">3+1 YRS<span>Plus Two Biology</span></div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-code">GN</div>
+        <div>
+          <div class="course-title">General Nursing & Midwifery (GNM)</div>
+          <div class="course-meta">Comprehensive nursing care & midwifery practice</div>
+        </div>
+        <div class="course-side">3 YRS<span>Plus Two</span></div>
+      </div>
+    </div>
+
+    <div class="courses-footnote">
+      <div class="footnote-chip"><span class="ic">✓</span> UGC Approved Programmes</div>
+      <div class="footnote-chip"><span class="ic">✓</span> Clinical Training at Mother Care Hospital</div>
+      <div class="footnote-chip"><span class="ic">✓</span> Hostel Facilities Available</div>
+      <div class="footnote-chip"><span class="ic">✓</span> Admission Only for Girls</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="why" id="why">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="eyebrow">Why Royal College</span>
+      <h2>A degree built on practical experience.</h2>
+      <p>Everything about our programmes is designed around one outcome — graduates who can step confidently into clinical roles.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">⚕</div>
+        <h4>Real hospital exposure</h4>
+        <p>Train inside Mother Care Hospital's wards, OTs and diagnostic units throughout your course, not just during internship.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">★</div>
+        <h4>No.1 ranked institution</h4>
+        <p>Recognised as the No.1 girls-only college under Rajiv Gandhi University for paramedical sciences.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">✓</div>
+        <h4>UGC approved courses</h4>
+        <p>Every BSc and GNM programme is approved under UGC guidelines, ensuring your qualification is recognised nationwide.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">⌂</div>
+        <h4>Safe, supportive campus</h4>
+        <p>On-campus hostel facilities, a focused all-girls environment, and faculty who guide you at every step.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">→</div>
+        <h4>Placement support</h4>
+        <p>Career-oriented learning with dedicated placement assistance as you move from internship to employment.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">+</div>
+        <h4>1-year paid internship</h4>
+        <p>Every BSc programme includes a structured 1-year internship at Mother Care Hospital after your 3-year degree.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact" style="padding-top:0;">
+  <div class="cta">
+    <div>
+      <h2>Take the first step toward your healthcare career.</h2>
+      <p>Admissions for 2026–27 are open. Speak with our admissions team today — we'll guide you through eligibility, course selection and hostel arrangements.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="tel:+919544425670" class="cta-contact">📞 +91 95444 25670</a>
+      <a href="tel:+918137982910" class="cta-contact">📞 +91 8137 982 910</a>
+      <a href="mailto:royalcollage858@gmail.com" class="cta-contact">✉ royalcollage858@gmail.com</a>
+      <a href="tel:+919544425670" class="btn btn-primary" style="margin-top:6px;">Contact Admissions</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="brand">
+                <img src="img/royal-logo.png" alt="Royal College of Science & Management" width="120" >
+
+        </a>
+        <p>Associated with Mother Care Hospital — providing care with kindness, and education with purpose. Mannarkkad, Palakkad, Kerala.</p>
+      </div>
+      <div>
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#why">Why Choose Us</a></li>
+          <li><a href="#contact">Admissions</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Programmes</h5>
+        <ul>
+          <li><a href="#courses">Cardiac Care Technology</a></li>
+          <li><a href="#courses">OT & Anaesthesia Technology</a></li>
+          <li><a href="#courses">Medical Imaging Technology</a></li>
+          <li><a href="#courses">GNM Nursing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="tel:+919544425670">+91 95444 25670</a></li>
+          <li><a href="tel:+918137982910">+91 8137 982 910</a></li>
+          <li><a href="mailto:royalcollage858@gmail.com">royalcollage858@gmail.com</a></li>
+          <li>Mannarkkad, Palakkad</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Royal College of Science & Management. All rights reserved.</span>
+      <div class="tags">
+        <span>UGC Approved</span>
+        <span>Admissions Open 2026–27</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
