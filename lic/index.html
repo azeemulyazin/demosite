@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thampi Parameswaran | LIC Advisor, Kayamkulam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B2A4A;
+    --navy-deep:#071B32;
+    --gold:#E3A518;
+    --gold-soft:#F6D98B;
+    --cream:#FBF7EE;
+    --ink:#16213A;
+    --green:#2E7D4F;
+    --line:#E4DCC8;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    margin:0;
+  }
+  h1,h2,h3,.display-font{
+    font-family:'Fraunces',serif;
+  }
+  a{text-decoration:none;}
+
+  /* ===== Navbar ===== */
+  .navbar-custom{
+    background:var(--cream);
+    border-bottom:1px solid var(--line);
+    padding:.9rem 0;
+  }
+  .brand-mark{
+    display:flex;align-items:center;gap:.65rem;
+  }
+  .brand-badge{
+    width:44px;height:44px;border-radius:50%;
+    background:var(--navy);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--gold);font-family:'Fraunces',serif;font-weight:700;font-size:1.05rem;
+    border:2px solid var(--gold);
+  }
+  .brand-text .name{font-family:'Fraunces',serif;font-weight:600;color:var(--navy);font-size:1.05rem;line-height:1.1;}
+  .brand-text .role{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--green);font-weight:600;}
+  .nav-link-custom{
+    color:var(--ink);font-weight:500;font-size:.94rem;margin:0 .55rem;
+  }
+  .nav-link-custom:hover{color:var(--navy);}
+  .btn-gold{
+    background:var(--gold);color:var(--navy-deep);font-weight:700;border:none;
+    padding:.55rem 1.3rem;border-radius:6px;transition:.2s;
+  }
+  .btn-gold:hover{background:var(--navy);color:var(--gold);}
+  .btn-outline-navy{
+    border:1.5px solid var(--navy);color:var(--navy);font-weight:600;
+    padding:.5rem 1.2rem;border-radius:6px;transition:.2s;
+  }
+  .btn-outline-navy:hover{background:var(--navy);color:#fff;}
+
+  /* ===== Hero / Banner ===== */
+  .hero{
+    position:relative;
+    background:linear-gradient(180deg,var(--navy) 0%,var(--navy-deep) 100%);
+    color:#fff;
+    padding:5.5rem 0 8.5rem;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;left:0;right:0;bottom:-1px;height:90px;
+    background:var(--cream);
+    clip-path: path('M0,60 C 300,0 700,110 1000,50 L1000,120 L0,120 Z');
+  }
+  .hero-eyebrow{
+    color:var(--gold);letter-spacing:.18em;text-transform:uppercase;font-size:.78rem;font-weight:700;
+  }
+  .hero h1{
+    font-size:clamp(2.1rem,4.2vw,3.4rem);font-weight:600;line-height:1.12;margin:.6rem 0 1.1rem;
+  }
+  .hero h1 span{color:var(--gold);}
+  .hero p.lead-custom{
+    color:#DCE4EE;font-size:1.08rem;max-width:520px;
+  }
+  .trust-strip{
+    display:flex;gap:1.6rem;flex-wrap:wrap;margin-top:2.2rem;
+  }
+  .trust-item{
+    display:flex;align-items:center;gap:.5rem;font-size:.86rem;color:#CFE0D5;font-weight:500;
+  }
+  .trust-item svg{width:18px;height:18px;flex-shrink:0;color:var(--gold);}
+  .hero-card{
+    background:#fff;border-radius:14px;padding:1.9rem;box-shadow:0 25px 50px -12px rgba(7,27,50,.45);
+    position:relative;z-index:2;
+  }
+  .hero-card .ribbon{
+    position:absolute;top:-14px;left:1.6rem;background:var(--gold);color:var(--navy-deep);
+    font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+    padding:.35rem .8rem;border-radius:20px;box-shadow:0 4px 10px rgba(0,0,0,.15);
+  }
+  .avatar-ring{
+    width:86px;height:86px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--navy-deep));
+    display:flex;align-items:center;justify-content:center;color:var(--gold);
+    font-family:'Fraunces',serif;font-weight:700;font-size:1.7rem;border:3px solid var(--gold-soft);
+    margin:0 auto;
+  }
+  .hero-card h5{font-family:'Fraunces',serif;text-align:center;margin-top:.9rem;color:var(--navy);font-weight:600;}
+  .hero-card .role-tag{text-align:center;color:var(--green);font-size:.82rem;font-weight:600;letter-spacing:.03em;}
+  .hero-card .divider{height:1px;background:var(--line);margin:1.1rem 0;}
+  .hero-card .contact-row{display:flex;align-items:center;gap:.6rem;font-size:.88rem;color:var(--ink);margin-bottom:.65rem;}
+  .hero-card .contact-row svg{width:17px;height:17px;color:var(--navy);flex-shrink:0;}
+
+  /* ===== Section shared ===== */
+  .section{padding:5rem 0;}
+  .section-alt{background:#fff;}
+  .eyebrow{
+    color:var(--green);letter-spacing:.16em;text-transform:uppercase;font-size:.76rem;font-weight:700;
+  }
+  .section-title{
+    font-family:'Fraunces',serif;font-weight:600;color:var(--navy);font-size:clamp(1.7rem,3vw,2.3rem);margin-top:.4rem;
+  }
+  .section-sub{color:#57626F;max-width:640px;margin-top:.7rem;}
+
+  /* ===== About ===== */
+  .about-photo-frame{
+    background:var(--navy);border-radius:16px;padding:2.4rem;position:relative;color:#fff;
+  }
+  .about-photo-frame .avatar-lg{
+    width:120px;height:120px;border-radius:50%;background:var(--navy-deep);border:3px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:'Fraunces',serif;
+    font-weight:700;font-size:2.3rem;margin:0 auto 1rem;
+  }
+  .stat-box{
+    background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:10px;
+    padding:.9rem 1rem;text-align:center;
+  }
+  .stat-box .num{font-family:'Fraunces',serif;font-size:1.5rem;color:var(--gold);font-weight:700;}
+  .stat-box .lbl{font-size:.74rem;color:#C9D3DE;letter-spacing:.03em;}
+  .about-list li{margin-bottom:.85rem;display:flex;gap:.65rem;align-items:flex-start;}
+  .about-list svg{width:19px;height:19px;color:var(--green);flex-shrink:0;margin-top:.15rem;}
+
+  /* ===== Services / Plan cards (ledger style) ===== */
+  .plan-card{
+    background:#fff;border:1px solid var(--line);border-radius:12px;padding:1.7rem;height:100%;
+    position:relative;transition:.25s;border-top:4px solid var(--gold);
+  }
+  .plan-card:hover{transform:translateY(-6px);box-shadow:0 18px 34px -14px rgba(11,42,74,.25);}
+  .plan-icon{
+    width:52px;height:52px;border-radius:10px;background:var(--navy);display:flex;align-items:center;
+    justify-content:center;color:var(--gold);margin-bottom:1.1rem;
+  }
+  .plan-icon svg{width:26px;height:26px;}
+  .plan-card h5{font-family:'Fraunces',serif;color:var(--navy);font-weight:600;margin-bottom:.5rem;}
+  .plan-card p{color:#5B6672;font-size:.92rem;margin-bottom:.9rem;}
+  .plan-tag{
+    display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+    color:var(--green);background:#EAF4EC;padding:.25rem .65rem;border-radius:20px;
+  }
+
+  /* ===== Why choose ===== */
+  .why-item{display:flex;gap:1rem;align-items:flex-start;padding:1.2rem 0;border-bottom:1px solid var(--line);}
+  .why-item:last-child{border-bottom:none;}
+  .why-icon{
+    width:46px;height:46px;border-radius:50%;background:var(--gold-soft);display:flex;align-items:center;
+    justify-content:center;color:var(--navy);flex-shrink:0;
+  }
+  .why-icon svg{width:22px;height:22px;}
+  .why-item h6{font-family:'Fraunces',serif;color:var(--navy);font-weight:600;margin-bottom:.2rem;}
+  .why-item p{color:#5B6672;font-size:.9rem;margin:0;}
+  .why-visual{
+    background:var(--navy);border-radius:16px;padding:2.5rem;color:#fff;height:100%;
+    display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;
+  }
+  .why-visual::before{
+    content:"";position:absolute;width:260px;height:260px;border-radius:50%;
+    background:radial-gradient(circle,rgba(227,165,24,.18),transparent 70%);
+    top:-60px;right:-60px;
+  }
+
+  /* ===== Gallery (life-stage planning) ===== */
+  .gallery-card{
+    border-radius:14px;overflow:hidden;position:relative;
+    display:flex;align-items:flex-end;padding:1.4rem;color:#fff;
+  }
+  .gallery-card .g-illustration{
+    position:absolute;inset:0;
+  }
+  .gallery-card .g-overlay{
+    position:absolute;inset:0;background:linear-gradient(0deg, rgba(7,27,50,.88) 10%, rgba(7,27,50,.15) 65%);
+  }
+  .gallery-card .g-content{position:relative;z-index:2;}
+  .gallery-card .g-content .tag{
+    font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);font-weight:700;
+  }
+  .gallery-card .g-content h6{font-family:'Fraunces',serif;font-weight:600;margin:.25rem 0 0;font-size:1.15rem;}
+
+  /* ===== CTA ===== */
+  .cta-section{
+    background:linear-gradient(135deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:#fff;border-radius:20px;padding:3rem;position:relative;overflow:hidden;
+  }
+  .cta-section::before{
+    content:"";position:absolute;width:320px;height:320px;background:radial-gradient(circle,rgba(227,165,24,.2),transparent 70%);
+    top:-100px;left:-80px;
+  }
+  .cta-section h3{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(1.5rem,3vw,2rem);}
+  .btn-whatsapp{
+    background:#25D366;color:#fff;font-weight:700;padding:.75rem 1.6rem;border-radius:8px;display:inline-flex;
+    align-items:center;gap:.55rem;transition:.2s;
+  }
+  .btn-whatsapp:hover{background:#1DA851;color:#fff;}
+  .btn-call{
+    background:var(--gold);color:var(--navy-deep);font-weight:700;padding:.75rem 1.6rem;border-radius:8px;
+    display:inline-flex;align-items:center;gap:.55rem;transition:.2s;
+  }
+  .btn-call:hover{background:#fff;color:var(--navy);}
+
+  /* ===== Footer ===== */
+  footer{background:var(--navy-deep);color:#B9C4D0;padding:3.2rem 0 1.4rem;}
+  footer h6{color:#fff;font-family:'Fraunces',serif;font-weight:600;margin-bottom:1rem;}
+  footer a{color:#B9C4D0;}
+  footer a:hover{color:var(--gold);}
+  footer .foot-contact{display:flex;gap:.6rem;align-items:center;margin-bottom:.7rem;font-size:.9rem;}
+  footer .foot-contact svg{width:17px;height:17px;color:var(--gold);flex-shrink:0;}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:2rem;padding-top:1.2rem;font-size:.82rem;text-align:center;color:#8494A3;}
+
+  @media (max-width:767px){
+    .hero{padding:3.5rem 0 6.5rem;text-align:center;}
+    .hero p.lead-custom{margin:0 auto;}
+    .trust-strip{justify-content:center;}
+    .hero-card{margin-top:2.5rem;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Navbar ===== -->
+<nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+  <div class="container">
+    <a class="brand-mark" href="#home">
+      <div class="brand-badge">TP</div>
+      <div class="brand-text">
+        <div class="name">Thampi Parameswaran</div>
+        <div class="role">LIC Advisor</div>
+      </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#services">Plans</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#why">Why LIC</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#gallery">Life Stages</a></li>
+        <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+          <a class="btn-gold" href="https://wa.me/919446194631" target="_blank">WhatsApp Now</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== Hero ===== -->
+<header class="hero" id="home">
+  <div class="container position-relative">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7">
+        <div class="hero-eyebrow">Life Insurance Corporation of India</div>
+        <h1>Life insurance for a<br><span>secure tomorrow.</span></h1>
+        <p class="lead-custom">Life is full of uncertainties, but your family's future doesn't have to be. Plan guaranteed returns, lifelong income and complete protection with LIC of India — guided by an advisor you can trust.</p>
+        <div class="d-flex gap-3 flex-wrap mt-4">
+          <a href="https://wa.me/919446194631" class="btn-whatsapp" target="_blank">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.51 2 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.12.11-1.8-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.79-4.17-4.93-4.36-.14-.19-1.18-1.57-1.18-3 0-1.42.75-2.12 1.02-2.41.27-.29.58-.36.78-.36.2 0 .39 0 .56.01.18.01.42-.07.65.5.24.58.82 2 .89 2.14.07.14.12.31.02.5-.1.19-.15.31-.29.48-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.35 1.46.29.15.46.13.63-.08.17-.2.72-.84.91-1.13.19-.29.38-.24.63-.14.26.1 1.65.78 1.93.92.29.15.48.22.55.34.07.13.07.71-.17 1.39z"/></svg>
+            WhatsApp
+          </a>
+          <a href="tel:9446194631" class="btn-call">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.36 11.36 0 003.57.57 1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.57 1 1 0 01-.25 1.02l-2.2 2.2z"/></svg>
+            Call 94461 94631
+          </a>
+        </div>
+        <div class="trust-strip">
+          <div class="trust-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l8 4v6c0 5-3.4 9.4-8 10-4.6-.6-8-5-8-10V6z"/></svg>Trusted for 68+ years</div>
+          <div class="trust-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8z"/></svg>100% Guaranteed by LIC</div>
+          <div class="trust-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l9 4-9 4-9-4z"/><path d="M3 11v4l9 4 9-4v-4l-9 4z"/></svg>Tax benefits u/s 80C &amp; 10(10D)</div>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="hero-card">
+          <span class="ribbon">Your Trust, My Commitment</span>
+          <div class="avatar-ring">TP</div>
+          <h5>Thampi Parameswaran</h5>
+          <div class="role-tag">LIC Advisor · Kayamkulam, Kerala</div>
+          <div class="divider"></div>
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.36 11.36 0 003.57.57 1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.57 1 1 0 01-.25 1.02l-2.2 2.2z"/></svg>
+            9446194631
+          </div>
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5z"/></svg>
+            thampip@gmail.com
+          </div>
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg>
+            Kayamkulam, Kerala
+          </div>
+          <a href="https://wa.me/919446194631" class="btn-gold w-100 text-center mt-2" target="_blank" style="display:block;">Book a Free Consultation</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== About ===== -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5">
+        <div class="about-photo-frame">
+          <div class="avatar-lg">TP</div>
+          <div class="text-center mb-4">
+            <div style="font-family:'Fraunces',serif;font-size:1.3rem;font-weight:600;">Thampi Parameswaran</div>
+            <div style="color:var(--gold);font-size:.85rem;font-weight:600;">LIC Advisor, Kayamkulam</div>
+          </div>
+          <div class="row g-2">
+            <div class="col-4"><div class="stat-box"><div class="num">68+</div><div class="lbl">Years of LIC Trust</div></div></div>
+            <div class="col-4"><div class="stat-box"><div class="num">100%</div><div class="lbl">Guaranteed by LIC</div></div></div>
+            <div class="col-4"><div class="stat-box"><div class="num">5+</div><div class="lbl">Plan Categories</div></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="eyebrow">About Your Advisor</div>
+        <h2 class="section-title">Personal guidance, backed by India's most trusted insurer.</h2>
+        <p class="section-sub">Life is full of uncertainties. But your loved ones' future doesn't have to be. As your local LIC advisor in Kayamkulam, I help individuals and families across Kerala choose the right mix of protection, savings and retirement plans — explained simply, with no pressure and no confusion.</p>
+        <ul class="list-unstyled about-list mt-4">
+          <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg><span>Free, no-obligation policy consultation tailored to your goals.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg><span>Help with premium calculations, claim support and policy servicing.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg><span>Honest comparisons across LIC's savings, protection and pension plans.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg><span>Ongoing support even after the policy is issued — a relationship, not a sale.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Services / Plans ===== -->
+<section class="section section-alt" id="services">
+  <div class="container">
+    <div class="text-center mx-auto" style="max-width:640px;">
+      <div class="eyebrow">Our Popular Plans</div>
+      <h2 class="section-title">A plan for every stage of life</h2>
+      <p class="section-sub mx-auto">From protecting your family today to enjoying a tension-free retirement tomorrow — here's where most of my clients start.</p>
+    </div>
+    <div class="row g-4 mt-2">
+      <div class="col-md-6 col-lg-4">
+        <div class="plan-card">
+          <div class="plan-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l8 4v6c0 5-3.4 9.4-8 10-4.6-.6-8-5-8-10V6z"/></svg></div>
+          <span class="plan-tag">Savings Plan</span>
+          <h5 class="mt-2">Jeevan Utsav</h5>
+          <p>A participating, non-linked savings plan with guaranteed additions, a lump sum maturity benefit and lifelong life cover for your family's dreams.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="plan-card">
+          <div class="plan-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-2h2zm0-4h-2V7h2z"/></svg></div>
+          <span class="plan-tag">Pension Plan</span>
+          <h5 class="mt-2">Jeevan Shanti 758</h5>
+          <p>An immediate annuity plan — invest once and receive a guaranteed pension for life, with single or joint life options for a tension-free retirement.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="plan-card">
+          <div class="plan-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 17l6-6 4 4 8-8v6h2V4h-9v2h6l-7 7-4-4-8 8z"/></svg></div>
+          <span class="plan-tag">Whole Life Plan</span>
+          <h5 class="mt-2">Jeevan Labh 736</h5>
+          <p>Limited premium, whole life protection with guaranteed additions and a high maturity benefit — disciplined saving that builds real wealth.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="plan-card">
+          <div class="plan-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5z"/></svg></div>
+          <span class="plan-tag">Protection Plan</span>
+          <h5 class="mt-2">Term Insurance</h5>
+          <p>High life cover at an affordable premium, because your family's financial future matters more than the cost of protecting it.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="plan-card">
+          <div class="plan-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16v2H4zm2 4h12v12H6zm2 2v8h8v-8z"/></svg></div>
+          <span class="plan-tag">Retirement Plan</span>
+          <h5 class="mt-2">Pension Plans</h5>
+          <p>Plan your retirement today and enjoy a steady, guaranteed income tomorrow — designed for peace of mind, not just returns.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="plan-card">
+          <div class="plan-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.6 4.6L18 8l-4.4 1.4L12 14l-1.6-4.6L6 8l4.4-1.4z"/></svg></div>
+          <span class="plan-tag">Custom Advice</span>
+          <h5 class="mt-2">Personalised Roadmap</h5>
+          <p>Not sure which plan fits? Spend 20 minutes with me and get a retirement or savings roadmap built around your income and goals.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Why Choose LIC ===== -->
+<section class="section" id="why">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-5">
+        <div class="why-visual">
+          <div class="eyebrow" style="color:var(--gold-soft);">Why Choose LIC</div>
+          <h3 class="mt-2" style="font-weight:600;">Backed by trust. Built on guarantees.</h3>
+          <p style="color:#CFE0D5;">LIC of India has protected Indian families for over six decades — combining the safety of a government-backed insurer with plans designed for real financial outcomes.</p>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="why-item">
+          <div class="why-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l8 4v6c0 5-3.4 9.4-8 10-4.6-.6-8-5-8-10V6z"/></svg></div>
+          <div><h6>Trust &amp; Reliability</h6><p>Backed by the trust of millions of Indians for over 65 years.</p></div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zM8 11c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
+          <div><h6>Financial Security</h6><p>Protection and savings plans designed for you and your loved ones.</p></div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+          <div><h6>Guaranteed Returns</h6><p>Enjoy guaranteed benefits and complete peace of mind.</p></div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h18v18H3zM7 12h2v6H7zm4-4h2v10h-2zm4 7h2v3h-2z"/></svg></div>
+          <div><h6>Tax Benefits</h6><p>Save on tax under Section 80C &amp; 10(10D) while you plan ahead.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Gallery: Life Stages ===== -->
+<section class="section section-alt" id="gallery">
+  <div class="container">
+    <div class="text-center mx-auto" style="max-width:640px;">
+      <div class="eyebrow">Planning For Every Milestone</div>
+      <h2 class="section-title">Wherever you are in life, there's a plan for it</h2>
+    </div>
+    <div class="row g-4 mt-2">
+      <div class="col-md-6 col-lg-3">
+        <div class="gallery-card">
+          
+                    <img src="img/1.jpeg" alt="" class="img-fluid ">
+
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="gallery-card">
+                    <img src="img/2.jpeg" alt="" class="img-fluid ">
+
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="gallery-card">
+                    <img src="img/3.jpeg" alt="" class="img-fluid ">
+
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="gallery-card">
+          <img src="img/5.jpeg" alt="" class="img-fluid ">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="section">
+  <div class="container">
+    <div class="cta-section">
+      <div class="row align-items-center g-4 position-relative">
+        <div class="col-lg-8">
+          <div class="eyebrow" style="color:var(--gold-soft);">Retirement Planning Starts Today, Not Tomorrow</div>
+          <h3 class="mt-2">Let's spend just 20 minutes to build your personalised retirement roadmap.</h3>
+          <p style="color:#CFE0D5;margin-top:.7rem;">Reply "YES" on WhatsApp or call now to book your free appointment.</p>
+        </div>
+        <div class="col-lg-4 text-lg-end">
+          <div class="d-flex flex-column flex-lg-row gap-3 justify-content-lg-end">
+            <a href="https://wa.me/919446194631?text=YES" class="btn-whatsapp" target="_blank">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.51 2 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.12.11-1.8-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.79-4.17-4.93-4.36-.14-.19-1.18-1.57-1.18-3 0-1.42.75-2.12 1.02-2.41.27-.29.58-.36.78-.36.2 0 .39 0 .56.01.18.01.42-.07.65.5.24.58.82 2 .89 2.14.07.14.12.31.02.5-.1.19-.15.31-.29.48-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.35 1.46.29.15.46.13.63-.08.17-.2.72-.84.91-1.13.19-.29.38-.24.63-.14.26.1 1.65.78 1.93.92.29.15.48.22.55.34.07.13.07.71-.17 1.39z"/></svg>
+              Reply YES
+            </a>
+            <a href="tel:9446194631" class="btn-call">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.36 11.36 0 003.57.57 1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.57 1 1 0 01-.25 1.02l-2.2 2.2z"/></svg>
+              Call Now
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="brand-mark mb-3">
+          <div class="brand-badge">TP</div>
+          <div class="brand-text">
+            <div class="name" style="color:#fff;">Thampi Parameswaran</div>
+            <div class="role">LIC Advisor</div>
+          </div>
+        </div>
+        <p style="font-size:.9rem;color:#8494A3;">Your Trust, My Commitment. Helping families across Kerala plan a secure and prosperous tomorrow with LIC of India.</p>
+      </div>
+      <div class="col-lg-4">
+        <h6>Contact</h6>
+        <div class="foot-contact"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.36 11.36 0 003.57.57 1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.57 1 1 0 01-.25 1.02l-2.2 2.2z"/></svg><a href="tel:9446194631">94461 94631</a></div>
+        <div class="foot-contact"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5z"/></svg><a href="mailto:thampip@gmail.com">thampip@gmail.com</a></div>
+        <div class="foot-contact"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg><span>Kayamkulam, Kerala</span></div>
+      </div>
+      <div class="col-lg-4">
+        <h6>Quick Links</h6>
+        <div class="d-flex flex-column gap-2">
+          <a href="#about">About</a>
+          <a href="#services">Our Plans</a>
+          <a href="#why">Why Choose LIC</a>
+          <a href="https://wa.me/919446194631" target="_blank">Book a Consultation</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      &copy; <span id="year"></span> Thampi Parameswaran — LIC Advisor, Kayamkulam. All rights reserved.<br>
+      
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/919446194631" target="_blank" style="position:fixed;bottom:22px;right:22px;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(0,0,0,.25);z-index:999;">
+  <svg viewBox="0 0 24 24" fill="#fff" width="28" height="28"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.51 2 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.12.11-1.8-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.79-4.17-4.93-4.36-.14-.19-1.18-1.57-1.18-3 0-1.42.75-2.12 1.02-2.41.27-.29.58-.36.78-.36.2 0 .39 0 .56.01.18.01.42-.07.65.5.24.58.82 2 .89 2.14.07.14.12.31.02.5-.1.19-.15.31-.29.48-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.35 1.46.29.15.46.13.63-.08.17-.2.72-.84.91-1.13.19-.29.38-.24.63-.14.26.1 1.65.78 1.93.92.29.15.48.22.55.34.07.13.07.71-.17 1.39z"/></svg>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
