@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Align Digital Dentistry & Facial Aesthetics | Best Dental Clinic in Parappanangadi</title>
+<meta name="description" content="Align Digital Dentistry & Facial Aesthetics - Best dental clinic in Parappanangadi, Kerala offering orthodontics, implants, smile design and facial aesthetics with advanced technology.">
+
+<!-- Bootstrap 5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --teal-deep:#092F57;
+    --teal-mid:#14508A;
+    --sage-light:#F0F4F9;
+    --sage-mid:#E1E9F1;
+    --gold:#69CA98;
+    --gold-light:#A9E4C4;
+    --charcoal:#0B1E2E;
+    --white:#FFFFFF;
+    --off-white:#F8FAFC;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Manrope',sans-serif;
+    color:var(--charcoal);
+    background:var(--off-white);
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display-font{
+    font-family:'Instrument Serif', serif;
+    font-weight:400;
+    letter-spacing:0.3px;
+  }
+  .eyebrow{
+    font-family:'Manrope',sans-serif;
+    font-size:0.78rem;
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+  .btn-gold{
+    background:var(--gold);
+    color:var(--charcoal);
+    border:none;
+    font-weight:700;
+    padding:12px 32px;
+    border-radius:2px;
+    letter-spacing:0.5px;
+    transition:all 0.3s ease;
+  }
+  .btn-gold:hover{
+    background:var(--teal-deep);
+    color:var(--white);
+    transform:translateY(-2px);
+  }
+  .btn-outline-teal{
+    border:1.5px solid var(--teal-deep);
+    color:var(--teal-deep);
+    font-weight:700;
+    padding:11px 30px;
+    border-radius:2px;
+    background:transparent;
+    transition:all 0.3s ease;
+  }
+  .btn-outline-teal:hover{
+    background:var(--teal-deep);
+    color:var(--white);
+  }
+
+  /* ===== NAVBAR ===== */
+  .navbar-custom{
+    background:var(--white);
+    padding:14px 0;
+    box-shadow:0 2px 20px rgba(15,76,70,0.06);
+    transition:all 0.3s ease;
+  }
+  .navbar-brand-wrap{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .logo-badge{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--teal-deep),var(--teal-mid));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--gold-light);
+    font-family:'Instrument Serif',serif;
+    font-size:1.5rem;
+    flex-shrink:0;
+  }
+  .brand-text{
+    line-height:1.1;
+  }
+  .brand-text .title{
+    font-family:'Instrument Serif',serif;
+    font-size:1.25rem;
+    color:var(--teal-deep);
+    display:block;
+  }
+  .brand-text .sub{
+    font-size:0.62rem;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:700;
+  }
+  .nav-link-custom{
+    color:var(--charcoal) !important;
+    font-weight:600;
+    font-size:0.92rem;
+    margin:0 12px;
+    position:relative;
+  }
+  .nav-link-custom::after{
+    content:'';
+    position:absolute;
+    bottom:-4px;
+    left:0;
+    width:0;
+    height:2px;
+    background:var(--gold);
+    transition:width 0.3s ease;
+  }
+  .nav-link-custom:hover::after{width:100%;}
+
+  /* ===== BANNER ===== */
+  .banner{
+    min-height:92vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:
+      linear-gradient(180deg, rgba(15,38,36,0.55) 0%, rgba(15,38,36,0.78) 100%),
+      url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+    text-align:center;
+    color:var(--white);
+    padding-top:90px;
+  }
+  .banner-inner{
+    max-width:820px;
+    padding:0 20px;
+  }
+  .banner .eyebrow{color:var(--gold-light);}
+  .banner h1{
+    font-size:clamp(2.6rem,6vw,4.4rem);
+    line-height:1.08;
+    margin:18px 0 22px;
+  }
+  .banner h1 em{
+    font-style:italic;
+    color:var(--gold-light);
+  }
+  .banner p.lead-text{
+    font-size:1.1rem;
+    font-weight:400;
+    color:rgba(255,255,255,0.85);
+    max-width:600px;
+    margin:0 auto 34px;
+  }
+  .banner-stats{
+    display:flex;
+    gap:36px;
+    justify-content:center;
+    margin-top:50px;
+    flex-wrap:wrap;
+  }
+  .banner-stats .stat-num{
+    font-family:'Instrument Serif',serif;
+    font-size:2.1rem;
+    color:var(--gold-light);
+  }
+  .banner-stats .stat-label{
+    font-size:0.72rem;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:rgba(255,255,255,0.7);
+  }
+
+  /* scroll cue */
+  .scroll-cue{
+    position:absolute;
+    bottom:28px;
+    left:50%;
+    transform:translateX(-50%);
+    color:rgba(255,255,255,0.7);
+    font-size:1.4rem;
+    animation:bounce 2s infinite;
+  }
+  @keyframes bounce{
+    0%,100%{transform:translate(-50%,0);}
+    50%{transform:translate(-50%,10px);}
+  }
+
+  /* ===== SECTION GENERAL ===== */
+  section{padding:100px 0;}
+  .section-tag{
+    display:inline-block;
+    margin-bottom:14px;
+  }
+  .section-title{
+    font-size:clamp(2rem,4vw,2.9rem);
+    color:var(--teal-deep);
+    margin-bottom:22px;
+  }
+  .divider-line{
+    width:60px;
+    height:3px;
+    background:var(--gold);
+    margin-bottom:24px;
+  }
+
+  /* ===== ABOUT ===== */
+  .about-section{background:var(--white);}
+  .about-img-wrap{
+    position:relative;
+  }
+  .about-img-wrap img{
+    width:100%;
+    border-radius:4px;
+    box-shadow:0 30px 60px rgba(15,76,70,0.18);
+  }
+  .about-img-badge{
+    position:absolute;
+    bottom:-28px;
+    right:-20px;
+    background:var(--teal-deep);
+    color:var(--white);
+    padding:22px 26px;
+    border-radius:4px;
+    box-shadow:0 20px 40px rgba(15,76,70,0.25);
+  }
+  .about-img-badge .num{
+    font-family:'Instrument Serif',serif;
+    font-size:2.2rem;
+    color:var(--gold-light);
+    display:block;
+    line-height:1;
+  }
+  .about-img-badge .txt{
+    font-size:0.72rem;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    opacity:0.85;
+  }
+  .about-content p{
+    color:#425468;
+    font-size:1.02rem;
+    line-height:1.85;
+  }
+  .about-highlight-strip{
+    display:flex;
+    gap:26px;
+    margin-top:32px;
+    flex-wrap:wrap;
+  }
+  .about-highlight-strip .item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:700;
+    color:var(--teal-deep);
+    font-size:0.92rem;
+  }
+  .about-highlight-strip .item i{color:var(--gold);font-size:1.2rem;}
+
+  /* ===== SERVICES ===== */
+  .services-section{background:var(--sage-light);}
+  .service-card{
+    background:var(--white);
+    border-radius:6px;
+    overflow:hidden;
+    height:100%;
+    box-shadow:0 10px 30px rgba(15,76,70,0.06);
+    transition:all 0.35s ease;
+    border:1px solid rgba(15,76,70,0.06);
+  }
+  .service-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 25px 45px rgba(15,76,70,0.14);
+  }
+  .service-img{
+    height:190px;
+    overflow:hidden;
+    position:relative;
+  }
+  .service-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform 0.5s ease;
+  }
+  .service-card:hover .service-img img{transform:scale(1.08);}
+  .service-img::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(15,76,70,0) 40%, rgba(15,38,36,0.55) 100%);
+  }
+  .service-icon-chip{
+    position:absolute;
+    bottom:12px;
+    left:14px;
+    width:42px;
+    height:42px;
+    background:var(--gold);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--teal-deep);
+    font-size:1.15rem;
+    z-index:2;
+  }
+  .service-body{
+    padding:26px 24px 28px;
+  }
+  .service-body h3{
+    font-size:1.35rem;
+    color:var(--teal-deep);
+    margin-bottom:10px;
+    line-height:1.2;
+  }
+  .service-body p{
+    font-size:0.92rem;
+    color:#546578;
+    line-height:1.7;
+    margin-bottom:0;
+  }
+
+  /* ===== WHY CHOOSE US ===== */
+  .why-section{
+    background:var(--teal-deep);
+    color:var(--white);
+    position:relative;
+    overflow:hidden;
+  }
+  .why-section::before{
+    content:'';
+    position:absolute;
+    top:-100px;
+    right:-100px;
+    width:400px;
+    height:400px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(199,162,82,0.12) 0%, transparent 70%);
+  }
+  .why-section .section-title{color:var(--white);}
+  .why-section .eyebrow{color:var(--gold-light);}
+  .why-item{
+    display:flex;
+    gap:18px;
+    padding:26px 0;
+    border-bottom:1px solid rgba(255,255,255,0.12);
+  }
+  .why-item:last-child{border-bottom:none;}
+  .why-icon{
+    width:52px;
+    height:52px;
+    flex-shrink:0;
+    background:rgba(199,162,82,0.15);
+    border:1px solid rgba(199,162,82,0.4);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--gold-light);
+    font-size:1.3rem;
+  }
+  .why-item h4{
+    font-family:'Manrope',sans-serif;
+    font-weight:700;
+    font-size:1.05rem;
+    margin-bottom:6px;
+    color:var(--white);
+  }
+  .why-item p{
+    font-size:0.9rem;
+    color:rgba(255,255,255,0.7);
+    margin-bottom:0;
+    line-height:1.6;
+  }
+  .why-img-wrap{
+    position:relative;
+    height:100%;
+  }
+  .why-img-wrap img{
+    width:100%;
+    height:560px;
+    object-fit:cover;
+    border-radius:6px;
+  }
+
+  /* ===== CTA ===== */
+  .cta-section{
+    background:linear-gradient(120deg, var(--gold) 0%, #8FE0B5 100%);
+    text-align:center;
+    padding:70px 0;
+  }
+  .cta-section h2{
+    color:var(--teal-deep);
+    font-size:clamp(1.9rem,4vw,2.6rem);
+    margin-bottom:14px;
+  }
+  .cta-section p{
+    color:#092F57;
+    font-size:1.02rem;
+    margin-bottom:30px;
+  }
+  .cta-btn-group{
+    display:flex;
+    gap:16px;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  .btn-cta-primary{
+    background:var(--teal-deep);
+    color:var(--white);
+    font-weight:700;
+    padding:14px 34px;
+    border-radius:2px;
+    border:none;
+    transition:all 0.3s ease;
+  }
+  .btn-cta-primary:hover{
+    background:var(--charcoal);
+    color:var(--white);
+    transform:translateY(-2px);
+  }
+  .btn-cta-outline{
+    border:1.5px solid var(--teal-deep);
+    color:var(--teal-deep);
+    font-weight:700;
+    padding:13px 32px;
+    border-radius:2px;
+    background:transparent;
+  }
+  .btn-cta-outline:hover{
+    background:var(--teal-deep);
+    color:var(--white);
+  }
+
+  /* ===== FOOTER ===== */
+  footer{
+    background:var(--charcoal);
+    color:rgba(255,255,255,0.7);
+    padding:70px 0 24px;
+  }
+  .footer-logo-wrap{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:18px;
+  }
+  .footer-logo-wrap .logo-badge{
+    background:linear-gradient(135deg,var(--gold),#3FA873);
+    color:var(--charcoal);
+  }
+  .footer-logo-wrap .title{
+    font-family:'Instrument Serif',serif;
+    font-size:1.3rem;
+    color:var(--white);
+    display:block;
+  }
+  .footer-logo-wrap .sub{
+    font-size:0.62rem;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:700;
+  }
+  footer h5{
+    color:var(--white);
+    font-size:1rem;
+    font-weight:700;
+    margin-bottom:20px;
+    letter-spacing:0.5px;
+  }
+  footer p, footer li{
+    font-size:0.9rem;
+    line-height:1.9;
+  }
+  footer a{
+    color:rgba(255,255,255,0.7);
+    text-decoration:none;
+    transition:color 0.25s ease;
+  }
+  footer a:hover{color:var(--gold-light);}
+  footer ul{list-style:none;padding:0;margin:0;}
+  .footer-social a{
+    width:38px;
+    height:38px;
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:50%;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    margin-right:10px;
+    transition:all 0.3s ease;
+  }
+  .footer-social a:hover{
+    background:var(--gold);
+    border-color:var(--gold);
+    color:var(--charcoal);
+  }
+  .footer-bottom{
+    border-top:1px solid rgba(255,255,255,0.1);
+    margin-top:50px;
+    padding-top:22px;
+    font-size:0.82rem;
+    text-align:center;
+    color:rgba(255,255,255,0.45);
+  }
+
+  /* WhatsApp floating button */
+  .whatsapp-float{
+    position:fixed;
+    bottom:26px;
+    right:26px;
+    width:58px;
+    height:58px;
+    background:#25D366;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--white);
+    font-size:1.7rem;
+    box-shadow:0 10px 30px rgba(0,0,0,0.25);
+    z-index:999;
+    transition:transform 0.3s ease;
+  }
+  .whatsapp-float:hover{transform:scale(1.1);color:var(--white);}
+
+  /* Reveal animation */
+  .reveal{
+    opacity:0;
+    transform:translateY(30px);
+    transition:all 0.8s ease;
+  }
+  .reveal.active{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  @media(max-width:991px){
+    .about-img-badge{right:14px;}
+    .why-img-wrap img{height:340px;margin-top:40px;}
+    section{padding:70px 0;}
+    .banner{min-height:80vh;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+  <div class="container">
+    <a class="navbar-brand navbar-brand-wrap" href="#home">
+                <img src="img/logo.png" alt="" width="120" >
+
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav align-items-lg-center">
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#why">Why Us</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#contact">Contact</a></li>
+        <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+          <a href="tel:+919746028776" class="btn btn-gold btn-sm">Book Appointment</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== BANNER ===== -->
+<header class="banner" id="home">
+  <div class="banner-inner">
+    <span class="eyebrow">Parappanangadi &middot; Kerala</span>
+    <h1>Your Smile, <em>Perfectly Aligned</em></h1>
+    <p class="lead-text">The best dental clinic in Parappanangadi, delivering world-class oral healthcare and facial aesthetics with advanced technology and specialist care.</p>
+    <a href="#contact" class="btn btn-gold me-2">Book Your Visit</a>
+    <a href="#services" class="btn btn-outline-light">Explore Services</a>
+
+    <div class="banner-stats">
+      <div>
+        <span class="stat-num">10+</span>
+        <div class="stat-label">Specialities</div>
+      </div>
+      <div>
+        <span class="stat-num">100%</span>
+        <div class="stat-label">Advanced Tech</div>
+      </div>
+      <div>
+        <span class="stat-num">5000+</span>
+        <div class="stat-label">Smiles Treated</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue"><i class="bi bi-chevron-down"></i></div>
+</header>
+
+<!-- ===== ABOUT ===== -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5 reveal">
+        <div class="about-img-wrap">
+          <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1000&auto=format&fit=crop" alt="Align Dental Clinic interior">
+          <div class="about-img-badge">
+            <span class="num">15+</span>
+            <span class="txt">Years Combined Expertise</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7 reveal">
+        <span class="eyebrow">About Align</span>
+        <h2 class="section-title">The Best Dental Clinic<br>in Parappanangadi</h2>
+        <div class="divider-line"></div>
+        <div class="about-content">
+          <p>Align Digital Dentistry &amp; Facial Aesthetics, the best dental clinic in Parappanangadi, Kerala, offers comprehensive oral healthcare using advanced technology machines. We provide affordable orthodontic treatments including clear aligners, implantology, prosthodontics and smile design, endodontics and restorative dentistry, periodontal care, pediatric dentistry, maxillofacial prosthesis surgery, and facial aesthetics.</p>
+          <p>Every treatment is delivered with state-of-the-art equipment, expert specialists, and a hygienic, patient-friendly environment — ensuring world-class, affordable, and personalized dental care for every smile that walks through our doors.</p>
+        </div>
+        <div class="about-highlight-strip">
+          <div class="item"><i class="bi bi-cpu"></i> Advanced Technology</div>
+          <div class="item"><i class="bi bi-shield-check"></i> Hygienic Environment</div>
+          <div class="item"><i class="bi bi-person-badge"></i> Expert Specialists</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="services-section" id="services">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="eyebrow">What We Offer</span>
+      <h2 class="section-title">Our Dental Services</h2>
+      <div class="divider-line mx-auto"></div>
+      <p class="mx-auto" style="max-width:600px;color:#546578;">Comprehensive, technology-driven treatments tailored to restore, protect, and enhance every smile.</p>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="service-card">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1720685193964-4529228a33c1?q=80&w=800&auto=format&fit=crop" alt="Advanced Orthodontic Treatment">
+            <div class="service-icon-chip"><i class="bi bi-emoji-smile"></i></div>
+          </div>
+          <div class="service-body">
+            <h3>Advanced Orthodontic Treatment</h3>
+            <p>Your dream smile is within reach! Our advanced orthodontic solutions, including affordable clear aligners, go beyond straightening teeth — enhancing both appearance and function with precision care tailored to your needs.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="service-card">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?q=80&w=800&auto=format&fit=crop" alt="Implantology">
+            <div class="service-icon-chip"><i class="bi bi-diagram-3"></i></div>
+          </div>
+          <div class="service-body">
+            <h3>Implantology</h3>
+            <p>Rediscover the confidence of a complete smile with our advanced implantology solutions. Whether a single tooth replacement or a full-mouth transformation, we deliver durable, precise, and natural-looking results.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="service-card">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=800&auto=format&fit=crop" alt="Prosthodontist and Smile Design">
+            <div class="service-icon-chip"><i class="bi bi-stars"></i></div>
+          </div>
+          <div class="service-body">
+            <h3>Prosthodontist &amp; Smile Design</h3>
+            <p>Our prosthodontic care restores and replaces missing or damaged teeth with crowns, bridges, dentures, and dental implants — improving both oral function and aesthetics. We specialise in reconstructing and restoring teeth.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="service-card">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=800&auto=format&fit=crop" alt="Endodontics and Restorative Dentistry">
+            <div class="service-icon-chip"><i class="bi bi-heart-pulse"></i></div>
+          </div>
+          <div class="service-body">
+            <h3>Endodontics &amp; Restorative Dentistry</h3>
+            <p>Precision root canal and restorative care designed to relieve pain and preserve your natural teeth for the long term, combining advanced technique with a gentle, patient-first approach.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="service-card">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1571772996211-2f02c9727629?q=80&w=800&auto=format&fit=crop" alt="Periodontitis Treatment">
+            <div class="service-icon-chip"><i class="bi bi-shield-plus"></i></div>
+          </div>
+          <div class="service-body">
+            <h3>Periodontitis Treatment</h3>
+            <p>Strong, healthy gums are the cornerstone of a radiant smile. Our advanced periodontal treatments address gum disease at its root, restoring and protecting your oral health for years to come.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="service-card">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1758205308172-fc864545dcf7?q=80&w=800&auto=format&fit=crop" alt="Pedodontics Treatment">
+            <div class="service-icon-chip"><i class="bi bi-emoji-laughing"></i></div>
+          </div>
+          <div class="service-body">
+            <h3>Pedodontics Treatment</h3>
+            <p>Little smiles deserve extra special care. Our pediatric dental services nurture healthy habits and safeguard your child's oral health with gentle hands, a friendly approach, and advanced technology.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY CHOOSE US ===== -->
+<section class="why-section" id="why">
+  <div class="container position-relative">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 reveal">
+        <span class="eyebrow">Why Choose Us</span>
+        <h2 class="section-title">Trusted Care, Advanced<br>Technology</h2>
+        <div class="divider-line"></div>
+
+        <div class="why-item">
+          <div class="why-icon"><i class="bi bi-cpu"></i></div>
+          <div>
+            <h4>State-of-the-Art Equipment</h4>
+            <p>Advanced technology machines for precise diagnosis and treatment across every speciality.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon"><i class="bi bi-person-badge"></i></div>
+          <div>
+            <h4>Expert Specialists</h4>
+            <p>A dedicated team of specialists across orthodontics, implantology, prosthodontics and more.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon"><i class="bi bi-droplet-half"></i></div>
+          <div>
+            <h4>Hygienic Environment</h4>
+            <p>Strict sterilisation protocols in a clean, patient-friendly clinic environment.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon"><i class="bi bi-wallet2"></i></div>
+          <div>
+            <h4>Affordable &amp; Personalized</h4>
+            <p>World-class care that's tailored to you, without stretching your budget.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 reveal">
+        <div class="why-img-wrap">
+          <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?q=80&w=1000&auto=format&fit=crop" alt="Dental treatment technology">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section">
+  <div class="container reveal">
+    <h2>Ready for Your Best Smile Yet?</h2>
+    <p>Book a consultation with Align Digital Dentistry  today.</p>
+    <div class="cta-btn-group">
+      <a href="tel:+919746028776" class="btn btn-cta-primary"><i class="bi bi-telephone-fill me-2"></i>Call Now</a>
+      <a href="https://wa.me/919746028776" target="_blank" class="btn btn-cta-outline"><i class="bi bi-whatsapp me-2"></i>WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer id="contact">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4 col-md-6">
+        <div class="footer-logo-wrap">
+          <img src="img/logo.png" alt="" width="120" >
+        </div>
+        <p>The best dental clinic in Parappanangadi, Kerala — comprehensive, advanced, and affordable dental &amp; facial aesthetic care.</p>
+        <div class="footer-social mt-3">
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="https://wa.me/919746028776" target="_blank"><i class="bi bi-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div class="col-lg-2 col-md-6">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#why">Why Choose Us</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-2 col-md-6">
+        <h5>Our Services</h5>
+        <ul>
+          <li><a href="#services">Orthodontics</a></li>
+          <li><a href="#services">Implantology</a></li>
+          <li><a href="#services">Smile Design</a></li>
+          <li><a href="#services">Pediatric Dentistry</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <h5>Contact</h5>
+        <ul>
+          <li><i class="bi bi-geo-alt me-2"></i>PANAYATHIL COMPLEX, PARAPPANANGADI, MALAPPURAM , Pin 676303</li>
+          <li><i class="bi bi-telephone me-2"></i><a href="tel:+919746028776">+91 9746028776</a></li>
+          <li><i class="bi bi-envelope me-2"></i><a href="mailto:emmenstrading@gmail.com">emmenstrading@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2026 Align Digital Dentistry . All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/9119746028776" target="_blank" class="whatsapp-float"><i class="bi bi-whatsapp"></i></a>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('active');
+      }
+    });
+  },{threshold:0.15});
+  reveals.forEach(el=>observer.observe(el));
+
+  // Navbar shrink on scroll
+  const nav = document.querySelector('.navbar-custom');
+  window.addEventListener('scroll', ()=>{
+    if(window.scrollY > 40){
+      nav.style.padding = '8px 0';
+    } else {
+      nav.style.padding = '14px 0';
+    }
+  });
+</script>
+</body>
+</html>
