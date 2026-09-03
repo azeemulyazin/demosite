@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="7 Days Super Market, Babusapalya, Bengaluru - fresh groceries, fruits, vegetables and daily essentials, open seven days a week.">
+  <title>7 Days Super Market | Babusapalya, Bengaluru</title>
+  <link rel="icon" href="img/logo.png">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<div class="top-bar d-none d-lg-block">
+  <div class="container d-flex justify-content-between align-items-center">
+    <div class="small">
+      <i class="bi bi-telephone-fill me-1"></i>
+      <a href="tel:+917996131531">7996 131 531</a>
+      <span class="mx-3 opacity-50">|</span>
+      <i class="bi bi-envelope-fill me-1"></i>
+      <a href="mailto:sevendaysuhail@gmail.com">sevendaysuhail@gmail.com</a>
+    </div>
+    <div class="small">
+      <i class="bi bi-geo-alt-fill me-1"></i> Babusapalya, Bengaluru &ndash; 560043
+      <span class="ms-3 social-mini">
+        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://wa.me/917996131531" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar navbar-expand-lg sticky-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="#home">
+      <img src="img/logo.png" alt="" width="120">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+            aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#categories">Categories</a></li>
+        <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item ms-lg-3">
+          <a class="btn btn-cart" href="tel:+917996131531"><i class="bi bi-telephone-fill me-1"></i>Call Store</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ BANNER / HERO CAROUSEL ============ -->
+<section id="home" class="hero">
+  <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+
+    <div class="carousel-inner">
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        <div class="hero-slide slide-1">
+          <div class="hero-overlay"></div>
+          <div class="container">
+            <div class="row align-items-center min-vh-hero">
+              <div class="col-lg-7 hero-content">
+                <span class="hero-tag">Fresh Arrivals Daily</span>
+                <h1 class="hero-title">Farm Fresh Produce<br><span class="txt-accent">Every Single Day</span></h1>
+                <p class="hero-sub">Hand-picked fruits and vegetables delivered straight from local farms to your basket — crisp, clean and always in season.</p>
+                <div class="hero-btns">
+                  <a href="#categories" class="btn btn-primary-glow btn-lg">Explore Categories</a>
+                  <a href="#contact" class="btn btn-outline-light btn-lg">Visit Our Store</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="carousel-item">
+        <div class="hero-slide slide-2">
+          <div class="hero-overlay"></div>
+          <div class="container">
+            <div class="row align-items-center min-vh-hero">
+              <div class="col-lg-7 hero-content">
+                <span class="hero-tag">One Roof, Everything</span>
+                <h1 class="hero-title">Everything Your<br><span class="txt-accent">Kitchen Needs</span></h1>
+                <p class="hero-sub">Groceries, dairy, bakery, spices and household goods — all the aisles of a big store, right inside your neighbourhood.</p>
+                <div class="hero-btns">
+                  <a href="#categories" class="btn btn-primary-glow btn-lg">Browse the Aisles</a>
+                  <a href="#about" class="btn btn-outline-light btn-lg">Why 7 Days</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Slide 3 -->
+      <div class="carousel-item">
+        <div class="hero-slide slide-3">
+          <div class="hero-overlay"></div>
+          <div class="container">
+            <div class="row align-items-center min-vh-hero">
+              <div class="col-lg-7 hero-content">
+                <span class="hero-tag">Open All Week</span>
+                <h1 class="hero-title">Your Neighbourhood<br><span class="txt-accent">Store, 7 Days</span></h1>
+                <p class="hero-sub">Find us at Nanjappa Garden, Babusapalya — open every single day of the week, including Sundays and holidays.</p>
+                <div class="hero-btns">
+                  <a href="#contact" class="btn btn-primary-glow btn-lg">Get Directions</a>
+                  <a href="#gallery" class="btn btn-outline-light btn-lg">See Gallery</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- floating decorative blobs -->
+  <span class="blob blob-1"></span>
+  <span class="blob blob-2"></span>
+</section>
+
+<!-- ============ FEATURE STRIP ============ -->
+<section class="feature-strip">
+  <div class="container">
+    <div class="row g-3 g-lg-4">
+      <div class="col-6 col-lg-3 reveal">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="bi bi-calendar-check"></i></div>
+          <h6>Open 7 Days</h6><p>Every day of the week</p>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3 reveal" data-delay="100">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="bi bi-basket2-fill"></i></div>
+          <h6>100% Fresh</h6><p>Sourced every morning</p>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3 reveal" data-delay="200">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="bi bi-tags-fill"></i></div>
+          <h6>Fair Prices</h6><p>Everyday low pricing</p>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3 reveal" data-delay="300">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="bi bi-headset"></i></div>
+          <h6>Call &amp; Order</h6><p>Phone us any day</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="section about-section">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 reveal reveal-left">
+        <div class="about-images">
+          <div class="about-img about-img-main"></div>
+          <div class="about-img about-img-sub"></div>
+          <div class="experience-badge">
+            <span class="years">7</span>
+            <span class="lbl">Days a<br>Week</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 reveal reveal-right">
+        <span class="section-tag">About Us</span>
+        <h2 class="section-title">The Neighbourhood Store That Never <span class="txt-accent">Takes a Day Off</span></h2>
+        <p class="lead-text">7 Days Super Market sits on 7th Cross, Nanjappa Garden in Babusapalya — a full-shelf grocery store built around one simple promise: keep it fresh, keep it fair.</p>
+        <p>We stock everything a Bengaluru kitchen runs through in a week — fruits and vegetables brought in each morning, dairy and bakery, rice and pulses, spices, frozen foods and household care. And because we are open all seven days, there is never a day you have to plan around us.</p>
+
+        <div class="row g-3 my-4">
+          <div class="col-sm-6"><div class="check-item"><i class="bi bi-patch-check-fill"></i> Fresh stock every morning</div></div>
+          <div class="col-sm-6"><div class="check-item"><i class="bi bi-patch-check-fill"></i> Clean, well-lit aisles</div></div>
+          <div class="col-sm-6"><div class="check-item"><i class="bi bi-patch-check-fill"></i> Everyday low pricing</div></div>
+          <div class="col-sm-6"><div class="check-item"><i class="bi bi-patch-check-fill"></i> Friendly staff on floor</div></div>
+        </div>
+
+        <a href="#contact" class="btn btn-primary-glow btn-lg">Get in Touch</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CATEGORIES ============ -->
+<section id="categories" class="section bg-soft">
+  <div class="container">
+    <div class="text-center section-head reveal">
+      <span class="section-tag">What We Stock</span>
+      <h2 class="section-title">Shop by <span class="txt-accent">Category</span></h2>
+      <p class="section-desc">Eight aisles of everyday goodness, restocked before the doors open each morning.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-6 col-md-4 col-lg-3 reveal">
+        <div class="cat-card"><div class="cat-emoji">🥬</div><h6>Vegetables</h6><span>Fresh daily</span></div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3 reveal" data-delay="80">
+        <div class="cat-card"><div class="cat-emoji">🍎</div><h6>Fresh Fruits</h6><span>In season</span></div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3 reveal" data-delay="160">
+        <div class="cat-card"><div class="cat-emoji">🥛</div><h6>Dairy &amp; Eggs</h6><span>Chilled fresh</span></div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3 reveal" data-delay="240">
+        <div class="cat-card"><div class="cat-emoji">🍞</div><h6>Bakery</h6><span>Baked daily</span></div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3 reveal">
+        <div class="cat-card"><div class="cat-emoji">🍚</div><h6>Rice &amp; Pulses</h6><span>Bulk &amp; packed</span></div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3 reveal" data-delay="80">
+        <div class="cat-card"><div class="cat-emoji">🌶️</div><h6>Spices &amp; Masala</h6><span>Whole &amp; ground</span></div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3 reveal" data-delay="160">
+        <div class="cat-card"><div class="cat-emoji">🍫</div><h6>Snacks &amp; Drinks</h6><span>Everyday treats</span></div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3 reveal" data-delay="240">
+        <div class="cat-card"><div class="cat-emoji">🧴</div><h6>Household</h6><span>Home &amp; care</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CALL BANNER (parallax) ============ -->
+<section class="promo-banner">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-8 reveal">
+        <span class="section-tag light">Call &amp; Order</span>
+        <h2 class="promo-title">Short on Time? <span class="txt-accent">Phone Your List In</span></h2>
+        <p>Ring the store on any of our three lines and we will keep your order packed and ready at the counter.</p>
+        <div class="promo-phones">
+          <a href="tel:+917996131531" class="phone-chip"><i class="bi bi-telephone-fill"></i> 7996 131 531</a>
+          <a href="tel:+916360131531" class="phone-chip"><i class="bi bi-telephone-fill"></i> 6360 131 531</a>
+          <a href="tel:+918041612088" class="phone-chip"><i class="bi bi-telephone-fill"></i> 080-4161 2088</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section id="gallery" class="section">
+  <div class="container">
+    <div class="text-center section-head reveal">
+      <span class="section-tag">Our Store</span>
+      <h2 class="section-title">A Look Around The <span class="txt-accent">Aisles</span></h2>
+      <p class="section-desc">Clean floors, full shelves and a whole lot of colour.</p>
+    </div>
+
+    <!-- row 1: 2x2 tile block + one tall feature tile -->
+    <div class="row g-3 gallery-grid">
+      <div class="col-lg-6">
+        <div class="row g-3">
+          <div class="col-6 reveal">
+            <div class="gal-item g-veg"><div class="gal-cap"><h6>Vegetable Aisle</h6><span>Fresh Produce</span></div><i class="bi bi-plus-lg gal-plus"></i></div>
+          </div>
+          <div class="col-6 reveal" data-delay="80">
+            <div class="gal-item g-fruit"><div class="gal-cap"><h6>Fruit Corner</h6><span>Seasonal Picks</span></div><i class="bi bi-plus-lg gal-plus"></i></div>
+          </div>
+          <div class="col-6 reveal" data-delay="160">
+            <div class="gal-item g-bakery"><div class="gal-cap"><h6>Bakery Counter</h6><span>Baked Daily</span></div><i class="bi bi-plus-lg gal-plus"></i></div>
+          </div>
+          <div class="col-6 reveal" data-delay="240">
+            <div class="gal-item g-dairy"><div class="gal-cap"><h6>Dairy Section</h6><span>Chilled Fresh</span></div><i class="bi bi-plus-lg gal-plus"></i></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 reveal" data-delay="120">
+        <div class="gal-item gal-tall g-store"><div class="gal-cap"><h6>Main Shopping Floor</h6><span>Store Interior</span></div><i class="bi bi-plus-lg gal-plus"></i></div>
+      </div>
+    </div>
+
+    <!-- row 2 -->
+    <div class="row g-3 gallery-grid mt-0">
+      <div class="col-6 col-lg-4 reveal">
+        <div class="gal-item g-spice"><div class="gal-cap"><h6>Spice Bay</h6><span>Aromatics</span></div><i class="bi bi-plus-lg gal-plus"></i></div>
+      </div>
+      <div class="col-6 col-lg-4 reveal" data-delay="80">
+        <div class="gal-item g-frozen"><div class="gal-cap"><h6>Frozen Foods</h6><span>Deep Chilled</span></div><i class="bi bi-plus-lg gal-plus"></i></div>
+      </div>
+      <div class="col-12 col-lg-4 reveal" data-delay="160">
+        <div class="gal-item g-cart"><div class="gal-cap"><h6>Billing Counters</h6><span>Quick Checkout</span></div><i class="bi bi-plus-lg gal-plus"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="section bg-soft">
+  <div class="container">
+    <div class="text-center section-head reveal">
+      <span class="section-tag">Reach Us</span>
+      <h2 class="section-title">Visit or <span class="txt-accent">Message Us</span></h2>
+    </div>
+    <div class="row g-4 align-items-stretch">
+      <div class="col-lg-5 reveal reveal-left">
+        <div class="contact-info h-100">
+          <div class="ci-row">
+            <div class="ci-icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <div>
+              <h6>Store Address</h6>
+              <p>No-14, 7th Cross,<br>Nanjappa Garden, Babusapalya,<br>Bengaluru &ndash; 560043</p>
+            </div>
+          </div>
+          <div class="ci-row">
+            <div class="ci-icon"><i class="bi bi-telephone-fill"></i></div>
+            <div>
+              <h6>Call Us</h6>
+              <p>
+                <a href="tel:+917996131531">7996 131 531</a><br>
+                <a href="tel:+916360131531">6360 131 531</a><br>
+                <a href="tel:+918041612088">080-4161 2088</a>
+              </p>
+            </div>
+          </div>
+          <div class="ci-row">
+            <div class="ci-icon"><i class="bi bi-envelope-fill"></i></div>
+            <div>
+              <h6>Email</h6>
+              <p><a href="mailto:sevendaysuhail@gmail.com">sevendaysuhail@gmail.com</a></p>
+            </div>
+          </div>
+          <div class="ci-row">
+            <div class="ci-icon"><i class="bi bi-calendar-check-fill"></i></div>
+            <div>
+              <h6>Open</h6>
+              <p>All seven days of the week,<br>including Sundays &amp; holidays</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7 reveal reveal-right">
+        <form class="contact-form h-100" id="contactForm" novalidate>
+          <div class="row g-3">
+            <div class="col-md-6"><input type="text" class="form-control" placeholder="Your Name" required></div>
+            <div class="col-md-6"><input type="email" class="form-control" placeholder="Email Address" required></div>
+            <div class="col-md-6"><input type="tel" class="form-control" placeholder="Phone Number"></div>
+            <div class="col-md-6"><input type="text" class="form-control" placeholder="Subject"></div>
+            <div class="col-12"><textarea class="form-control" rows="5" placeholder="Your Message" required></textarea></div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary-glow btn-lg w-100"><i class="bi bi-send-fill me-2"></i>Send Message</button>
+            </div>
+            <div class="col-12"><div id="formMsg" class="form-note"></div></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="row g-4 gy-5">
+      <div class="col-lg-4 col-md-6">
+        <a class="navbar-brand footer-brand" href="#home">
+               <img src="img/logo.png" alt="" width="120">
+
+        </a>
+        <p class="mt-3">Fresh groceries, fair prices and a friendly counter — seven days a week. Serving Babusapalya, Nanjappa Garden and the neighbourhoods around Bengaluru 560043.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://wa.me/917996131531" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          <a href="mailto:sevendaysuhail@gmail.com" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
+        </div>
+      </div>
+
+      <div class="col-lg-2 col-md-6 col-6">
+        <h6 class="footer-head">Quick Links</h6>
+        <ul class="footer-list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#categories">Categories</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-6">
+        <h6 class="footer-head">Categories</h6>
+        <ul class="footer-list">
+          <li><a href="#categories">Fruits &amp; Vegetables</a></li>
+          <li><a href="#categories">Dairy &amp; Eggs</a></li>
+          <li><a href="#categories">Bakery &amp; Snacks</a></li>
+          <li><a href="#categories">Rice, Pulses &amp; Spices</a></li>
+          <li><a href="#categories">Household Care</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <h6 class="footer-head">Store Info</h6>
+        <ul class="footer-contact">
+          <li><i class="bi bi-geo-alt-fill"></i> No-14, 7th Cross, Nanjappa Garden, Babusapalya, Bengaluru &ndash; 560043</li>
+          <li><i class="bi bi-telephone-fill"></i>
+            <span>
+              <a href="tel:+917996131531">7996 131 531</a><br>
+              <a href="tel:+916360131531">6360 131 531</a><br>
+              <a href="tel:+918041612088">080-4161 2088</a>
+            </span>
+          </li>
+          <li><i class="bi bi-envelope-fill"></i> <a href="mailto:sevendaysuhail@gmail.com">sevendaysuhail@gmail.com</a></li>
+          <li><i class="bi bi-calendar-check-fill"></i> Open all seven days</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="mb-0">&copy; <span id="year">2026</span> 7 Days Super Market. All rights reserved.</p>
+      <ul class="footer-legal">
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Return Policy</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<!-- back to top -->
+<a href="#home" class="back-top" id="backTop" aria-label="Back to top"><i class="bi bi-arrow-up"></i></a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

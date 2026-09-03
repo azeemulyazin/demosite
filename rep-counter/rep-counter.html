@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Rep Counter — Physiotherapy Sets</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --slate:#26333a;
+    --slate-deep:#1c262b;
+    --paper:#ece7dd;
+    --amber:#e2a63b;
+    --moss:#5b8a6b;
+    --rust:#c1573a;
+    --ink:#1c2226;
+    --mist:#aeb9bd;
+  }
+
+  *{ box-sizing:border-box; }
+  html,body{ height:100%; margin:0; }
+
+  body{
+    font-family:'IBM Plex Sans', sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:100vh;
+    padding:1.5rem;
+  }
+
+  .device{
+    width:100%;
+    max-width:400px;
+    background:var(--slate);
+    border-radius:28px;
+    padding:2rem 1.75rem 2.25rem;
+    box-shadow:
+      0 30px 60px -20px rgba(28,38,43,0.45),
+      inset 0 1px 0 rgba(255,255,255,0.04);
+    position:relative;
+    overflow:hidden;
+  }
+  .device::before{
+    content:"";
+    position:absolute;
+    top:0; left:0; right:0;
+    height:1px;
+    background:linear-gradient(90deg, transparent, rgba(226,166,59,0.5), transparent);
+  }
+
+  .screen{ display:none; }
+  .screen.active{ display:block; }
+
+  /* ---------------- Setup screen ---------------- */
+  .brand{ color:var(--mist); font-size:0.8rem; letter-spacing:0.02em; margin:0 0 0.3rem; }
+  h1{
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600;
+    font-size:1.6rem;
+    color:#fff;
+    margin:0 0 0.6rem;
+    line-height:1.25;
+  }
+  .tagline{
+    color:var(--mist);
+    font-size:0.95rem;
+    line-height:1.5;
+    margin:0 0 2.2rem;
+    max-width:32ch;
+  }
+
+  .stepper{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:1.4rem;
+    margin-bottom:2.4rem;
+  }
+  .stepper button{
+    width:48px; height:48px;
+    border-radius:50%;
+    border:1.5px solid rgba(226,166,59,0.4);
+    background:transparent;
+    color:var(--amber);
+    font-size:1.5rem;
+    line-height:1;
+    cursor:pointer;
+    transition:background 0.15s ease;
+  }
+  .stepper button:active{ background:rgba(226,166,59,0.15); }
+  .stepper-value{ text-align:center; min-width:120px; }
+  .stepper-value span:first-child{
+    display:block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:3rem;
+    font-weight:700;
+    color:#fff;
+    line-height:1;
+  }
+  .stepper-label{ display:block; color:var(--mist); font-size:0.8rem; margin-top:0.4rem; }
+
+  .primary-btn{
+    width:100%;
+    padding:1rem;
+    border:none;
+    border-radius:14px;
+    background:var(--amber);
+    color:var(--slate-deep);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-weight:600;
+    font-size:1rem;
+    cursor:pointer;
+    transition:transform 0.1s ease, background 0.15s ease;
+  }
+  .primary-btn:active{ transform:scale(0.98); background:#d69a2f; }
+
+  /* ---------------- Workout screen ---------------- */
+  .set-indicator{ text-align:center; color:var(--mist); font-size:0.9rem; margin:0 0 1.4rem; }
+  .set-indicator strong{ color:#fff; font-family:'IBM Plex Mono', monospace; }
+
+  .gauge-wrap{ position:relative; width:220px; height:220px; margin:0 auto 1.8rem; }
+  .gauge-wrap svg{ width:100%; height:100%; transform:rotate(-90deg); }
+  .gauge-track{ fill:none; stroke:rgba(255,255,255,0.08); stroke-width:10; }
+  .gauge-arc{
+    fill:none;
+    stroke:var(--amber);
+    stroke-width:10;
+    stroke-linecap:round;
+    stroke-dasharray:534.07;
+    stroke-dashoffset:534.07;
+    transition:stroke-dashoffset 0.25s cubic-bezier(0.3,0.7,0.3,1), stroke 0.25s ease;
+  }
+  .gauge-readout{
+    position:absolute; top:0; left:0; right:0; bottom:0;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+  }
+  .gauge-readout #countValue{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:3.4rem;
+    font-weight:700;
+    color:#fff;
+    line-height:1;
+  }
+  .gauge-sub{ color:var(--mist); font-size:0.85rem; margin-top:0.2rem; }
+
+  .status-line{
+    text-align:center;
+    color:var(--amber);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.85rem;
+    letter-spacing:0.02em;
+    min-height:1.2rem;
+    margin:0 0 1.2rem;
+  }
+
+  .controls{ display:flex; justify-content:space-between; gap:0.6rem; }
+  .ghost-btn{
+    flex:1;
+    background:transparent;
+    border:1.5px solid rgba(255,255,255,0.14);
+    color:var(--mist);
+    padding:0.7rem 0.4rem;
+    border-radius:10px;
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:0.82rem;
+    font-weight:500;
+    cursor:pointer;
+    transition:border-color 0.15s ease, color 0.15s ease;
+  }
+  .ghost-btn:active{ border-color:var(--amber); color:var(--amber); }
+  .ghost-btn.is-active{ border-color:var(--rust); color:var(--rust); }
+  .ghost-btn.primary-ghost{ border-color:var(--amber); color:var(--amber); }
+
+  /* ---------------- Complete screen ---------------- */
+  .complete-icon{
+    width:64px; height:64px;
+    margin:0 auto 1.4rem;
+    border-radius:50%;
+    background:rgba(91,138,107,0.15);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .complete-icon svg{ width:30px; height:30px; }
+  #complete h1{ text-align:center; }
+  #completeSummary{ text-align:center; color:var(--mist); font-size:0.95rem; margin:0 0 2rem; }
+  #completeSummary strong{ color:#fff; font-family:'IBM Plex Mono', monospace; }
+
+  @media (prefers-reduced-motion: reduce){
+    .gauge-arc{ transition:none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="device">
+
+  <!-- ============ SETUP ============ -->
+  <section id="setup" class="screen active">
+    <p class="brand">Physio session</p>
+    <h1>Rep counter</h1>
+    <p class="tagline">Counts automatically, one rep a second. On rep 10 of each set it calls out the set number instead — so you always know where you are, hands-free.</p>
+
+    <div class="stepper">
+      <button id="decSets" aria-label="Fewer sets">−</button>
+      <div class="stepper-value">
+        <span id="setsValue">3</span>
+        <span class="stepper-label">sets of 10 reps</span>
+      </div>
+      <button id="incSets" aria-label="More sets">+</button>
+    </div>
+
+    <button id="startBtn" class="primary-btn">Start session</button>
+  </section>
+
+  <!-- ============ WORKOUT ============ -->
+  <section id="workout" class="screen">
+    <p class="set-indicator">Set <strong id="curSet">1</strong> of <strong id="totalSets">3</strong></p>
+
+    <div class="gauge-wrap">
+      <svg viewBox="0 0 200 200">
+        <circle class="gauge-track" cx="100" cy="100" r="85"></circle>
+        <circle class="gauge-arc" id="gaugeArc" cx="100" cy="100" r="85"></circle>
+      </svg>
+      <div class="gauge-readout">
+        <span id="countValue">0</span>
+        <span class="gauge-sub">of 10</span>
+      </div>
+    </div>
+
+    <p class="status-line" id="statusLine">Get ready…</p>
+
+    <div class="controls">
+      <button id="pauseBtn" class="ghost-btn primary-ghost">Pause</button>
+      <button id="muteBtn" class="ghost-btn">Mute voice</button>
+      <button id="endBtn" class="ghost-btn">End session</button>
+    </div>
+  </section>
+
+  <!-- ============ COMPLETE ============ -->
+  <section id="complete" class="screen">
+    <div class="complete-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#5b8a6b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 6L9 17l-5-5"></path>
+      </svg>
+    </div>
+    <h1>Session complete</h1>
+    <p id="completeSummary"></p>
+    <button id="restartBtn" class="primary-btn">Start another session</button>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  const REPS_PER_SET = 10;
+  const TICK_MS = 1000;          // one rep per second
+  const SET_GAP_MS = 1800;       // pause between sets, after the set-number call-out
+  const CIRC = 2 * Math.PI * 85; // 534.07
+
+  const setupScreen = document.getElementById('setup');
+  const workoutScreen = document.getElementById('workout');
+  const completeScreen = document.getElementById('complete');
+
+  const setsValueEl = document.getElementById('setsValue');
+  const decSetsBtn = document.getElementById('decSets');
+  const incSetsBtn = document.getElementById('incSets');
+  const startBtn = document.getElementById('startBtn');
+
+  const curSetEl = document.getElementById('curSet');
+  const totalSetsEl = document.getElementById('totalSets');
+  const countValueEl = document.getElementById('countValue');
+  const gaugeArc = document.getElementById('gaugeArc');
+  const statusLine = document.getElementById('statusLine');
+  const pauseBtn = document.getElementById('pauseBtn');
+  const muteBtn = document.getElementById('muteBtn');
+  const endBtn = document.getElementById('endBtn');
+
+  const completeSummary = document.getElementById('completeSummary');
+  const restartBtn = document.getElementById('restartBtn');
+
+  gaugeArc.style.strokeDasharray = CIRC.toFixed(2);
+  gaugeArc.style.strokeDashoffset = CIRC.toFixed(2);
+
+  let totalSets = 3;
+  let curSet = 1;
+  let count = 0;
+  let muted = false;
+  let running = false;
+  let timerId = null;
+
+  let audioCtx = null;
+  function getAudioCtx(){
+    if(!audioCtx){ audioCtx = new (window.AudioContext || window.webkitAudioContext)(); }
+    return audioCtx;
+  }
+
+  function beep(freq, duration, type, delay){
+    if(muted) return;
+    delay = delay || 0;
+    const ctx = getAudioCtx();
+    const startTime = ctx.currentTime + delay;
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = type || 'sine';
+    osc.frequency.setValueAtTime(freq, startTime);
+    gain.gain.setValueAtTime(0.0001, startTime);
+    gain.gain.exponentialRampToValueAtTime(0.22, startTime + 0.015);
+    gain.gain.exponentialRampToValueAtTime(0.0001, startTime + duration);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start(startTime);
+    osc.stop(startTime + duration + 0.02);
+  }
+
+  function speak(text){
+    if(muted) return;
+    if(!('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.rate = 1.05;
+    utter.pitch = 1.0;
+    window.speechSynthesis.speak(utter);
+  }
+
+  function showScreen(screen){
+    [setupScreen, workoutScreen, completeScreen].forEach(s => s.classList.remove('active'));
+    screen.classList.add('active');
+  }
+
+  function updateGauge(){
+    countValueEl.textContent = count;
+    const offset = CIRC - (count / REPS_PER_SET) * CIRC;
+    gaugeArc.style.strokeDashoffset = offset.toFixed(2);
+    gaugeArc.style.stroke = (count >= REPS_PER_SET)
+      ? getComputedStyle(document.documentElement).getPropertyValue('--moss')
+      : getComputedStyle(document.documentElement).getPropertyValue('--amber');
+  }
+
+  function clearTimer(){
+    if(timerId){ clearTimeout(timerId); timerId = null; }
+  }
+
+  // ---------- Core automatic loop ----------
+  function tick(){
+    if(!running) return;
+    count++;
+    updateGauge();
+
+    if(count < REPS_PER_SET){
+      beep(560, 0.09, 'sine');
+      speak(String(count));
+      statusLine.textContent = 'Rep ' + count + ' of ' + REPS_PER_SET;
+      timerId = setTimeout(tick, TICK_MS);
+    } else {
+      // 10th rep: call out the SET NUMBER instead of "10"
+      beep(660, 0.12, 'triangle');
+      beep(880, 0.16, 'triangle', 0.14);
+      speak(String(curSet));
+      statusLine.textContent = 'Set ' + curSet + ' done';
+      timerId = setTimeout(advanceSet, SET_GAP_MS);
+    }
+  }
+
+  function announceSetStart(){
+    if(!running) return;
+    beep(500, 0.12, 'sine');
+    speak('Set ' + curSet + '. Begin.');
+    statusLine.textContent = 'Set ' + curSet + ' starting…';
+    timerId = setTimeout(tick, TICK_MS);
+  }
+
+  function advanceSet(){
+    if(!running) return;
+    if(curSet < totalSets){
+      curSet++;
+      count = 0;
+      curSetEl.textContent = curSet;
+      updateGauge();
+      announceSetStart();
+    } else {
+      finishSession();
+    }
+  }
+
+  function finishSession(){
+    running = false;
+    clearTimer();
+    const totalReps = totalSets * REPS_PER_SET;
+    completeSummary.innerHTML = 'You finished <strong>' + totalSets + ' sets</strong> — <strong>' + totalReps + ' reps</strong> in total. Nice work.';
+    showScreen(completeScreen);
+    beep(660, 0.14, 'triangle');
+    beep(880, 0.14, 'triangle', 0.15);
+    beep(1100, 0.2, 'triangle', 0.3);
+    speak('All sets complete. Well done.');
+  }
+
+  // ---------- Setup screen ----------
+  decSetsBtn.addEventListener('click', function(){
+    totalSets = Math.max(1, totalSets - 1);
+    setsValueEl.textContent = totalSets;
+  });
+  incSetsBtn.addEventListener('click', function(){
+    totalSets = Math.min(20, totalSets + 1);
+    setsValueEl.textContent = totalSets;
+  });
+
+  startBtn.addEventListener('click', function(){
+    curSet = 1;
+    count = 0;
+    curSetEl.textContent = curSet;
+    totalSetsEl.textContent = totalSets;
+    updateGauge();
+    running = true;
+    pauseBtn.textContent = 'Pause';
+    showScreen(workoutScreen);
+    announceSetStart();
+  });
+
+  // ---------- Workout screen controls ----------
+  pauseBtn.addEventListener('click', function(){
+    if(running){
+      running = false;
+      clearTimer();
+      pauseBtn.textContent = 'Resume';
+      statusLine.textContent = 'Paused';
+      if('speechSynthesis' in window) window.speechSynthesis.cancel();
+    } else {
+      running = true;
+      pauseBtn.textContent = 'Pause';
+      if(count === 0){
+        announceSetStart();
+      } else {
+        statusLine.textContent = 'Rep ' + count + ' of ' + REPS_PER_SET;
+        timerId = setTimeout(tick, TICK_MS);
+      }
+    }
+  });
+
+  muteBtn.addEventListener('click', function(){
+    muted = !muted;
+    muteBtn.textContent = muted ? 'Unmute voice' : 'Mute voice';
+    muteBtn.classList.toggle('is-active', muted);
+    if(muted && 'speechSynthesis' in window){ window.speechSynthesis.cancel(); }
+  });
+
+  endBtn.addEventListener('click', function(){
+    running = false;
+    clearTimer();
+    if('speechSynthesis' in window) window.speechSynthesis.cancel();
+    showScreen(setupScreen);
+  });
+
+  restartBtn.addEventListener('click', function(){
+    showScreen(setupScreen);
+  });
+
+})();
+</script>
+</body>
+</html>

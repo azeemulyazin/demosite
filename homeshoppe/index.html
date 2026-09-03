@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Shoppe | The Complete Family Shop</title>
+
+<!-- Bootstrap 5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700;900&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --charcoal:#241f1d;
+    --brand-red:#9e1f2c;
+    --brand-red-dark:#6c1620;
+    --cream:#faf4e9;
+    --mustard:#e7b730;
+    --fresh-green:#3f7a44;
+    --stone:#8b8580;
+    --ink:#2c2622;
+  }
+
+  *{box-sizing:border-box;}
+
+  body{
+    font-family:'Work Sans', sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+  }
+
+  h1,h2,h3,.brand-word{
+    font-family:'Bitter', serif;
+  }
+
+  a{ text-decoration:none; }
+
+  /* ---------- Chevron shapes (echoes the Home Shoppe card motif) ---------- */
+  .chevron{
+    clip-path: polygon(0 0, 82% 0, 100% 50%, 82% 100%, 0 100%, 18% 50%);
+  }
+  .chevron-tag{
+    clip-path: polygon(0 0, 88% 0, 100% 50%, 88% 100%, 0 100%);
+    padding:0.45rem 1.4rem 0.45rem 1rem;
+  }
+  .corner-cut{
+    clip-path: polygon(0 0, 100% 0, 100% 88%, 88% 100%, 0 100%);
+  }
+
+  /* ---------- Navbar ---------- */
+  .navbar-home{
+    background:var(--cream);
+    border-bottom:3px solid var(--brand-red);
+  }
+  .navbar-home .brand-word{
+    font-weight:900;
+    font-size:1.5rem;
+    color:var(--brand-red);
+    letter-spacing:0.5px;
+    line-height:1;
+  }
+  .navbar-home .brand-sub{
+    font-size:0.62rem;
+    font-weight:700;
+    letter-spacing:1px;
+    color:var(--charcoal);
+    background:var(--mustard);
+    display:inline-block;
+    padding:1px 6px;
+    margin-top:3px;
+  }
+  .navbar-home .nav-link{
+    color:var(--charcoal);
+    font-weight:600;
+    margin:0 0.6rem;
+  }
+  .navbar-home .nav-link:hover{ color:var(--brand-red); }
+  .btn-directions{
+    background:var(--brand-red);
+    color:#fff;
+    font-weight:600;
+    padding:0.5rem 1.3rem;
+    border:none;
+  }
+  .btn-directions:hover{ background:var(--brand-red-dark); color:#fff; }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    background:var(--charcoal);
+    overflow:hidden;
+    padding:5.5rem 0 6rem;
+  }
+  .hero .chev-decor{
+    position:absolute;
+    top:0; bottom:0;
+    height:100%;
+  }
+  .hero .chev1{
+    right:-6%; width:52%;
+    background:var(--brand-red);
+    opacity:0.9;
+  }
+  .hero .chev2{
+    right:6%; width:30%;
+    background:var(--stone);
+    opacity:0.35;
+  }
+  .hero .chev3{
+    right:16%; width:16%;
+    background:var(--mustard);
+    opacity:0.5;
+  }
+  .hero-content{ position:relative; z-index:2; }
+  .hero h1{
+    color:#fff;
+    font-weight:900;
+    font-size:2.7rem;
+    line-height:1.15;
+    max-width:620px;
+  }
+  .hero p.lead-text{
+    color:#d8d2c9;
+    max-width:520px;
+    font-size:1.05rem;
+    margin-top:1.1rem;
+  }
+  .hero-tagline{
+    display:inline-block;
+    background:var(--mustard);
+    color:var(--charcoal);
+    font-weight:700;
+    font-size:0.85rem;
+    letter-spacing:0.5px;
+    padding:0.35rem 1rem;
+    margin-bottom:1.2rem;
+  }
+  .btn-call{
+    background:var(--brand-red);
+    color:#fff;
+    font-weight:600;
+    padding:0.65rem 1.6rem;
+    border:none;
+  }
+  .btn-call:hover{ background:var(--brand-red-dark); color:#fff; }
+  .btn-outline-cream{
+    border:2px solid var(--mustard);
+    color:var(--mustard);
+    font-weight:600;
+    padding:0.6rem 1.5rem;
+    background:transparent;
+  }
+  .btn-outline-cream:hover{ background:var(--mustard); color:var(--charcoal); }
+  .hero-address{
+    color:#b9b2a7;
+    font-size:0.92rem;
+    margin-top:1.6rem;
+  }
+  .hero-address i{ color:var(--mustard); margin-right:0.4rem; }
+
+  /* ---------- Section spacing ---------- */
+  section{ padding:5rem 0; }
+  .section-label{
+    font-weight:700;
+    color:var(--brand-red);
+    font-size:0.95rem;
+    margin-bottom:0.4rem;
+  }
+  .section-title{
+    font-weight:900;
+    color:var(--charcoal);
+    font-size:2.1rem;
+    margin-bottom:1.2rem;
+  }
+
+  /* ---------- About ---------- */
+  .about-visual{
+    position:relative;
+    padding:1.2rem;
+  }
+  .about-visual img{
+    width:100%;
+    height:380px;
+    object-fit:cover;
+  }
+  .about-visual::before{
+    content:"";
+    position:absolute;
+    top:0; left:0;
+    width:60%; height:60%;
+    background:var(--brand-red);
+    z-index:0;
+  }
+  .about-visual img{ position:relative; z-index:1; }
+  .tag-chip{
+    display:inline-flex;
+    align-items:center;
+    gap:0.4rem;
+    background:var(--charcoal);
+    color:#fff;
+    font-size:0.85rem;
+    font-weight:600;
+    margin:0.25rem 0.35rem 0.25rem 0;
+  }
+  .tag-chip i{ color:var(--mustard); }
+  .about-text p{ color:#4a4038; font-size:1.02rem; }
+
+  /* ---------- Gallery ---------- */
+  .gallery{ background:var(--charcoal); }
+  .gallery .section-title, .gallery .section-label{ color:#fff; }
+  .gallery .section-label{ color:var(--mustard); }
+  .gallery-item{
+    overflow:hidden;
+    position:relative;
+    height:230px;
+  }
+  .gallery-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform 0.4s ease;
+  }
+  .gallery-item:hover img{ transform:scale(1.08); }
+  .gallery-item .cap{
+    position:absolute;
+    left:0; bottom:0;
+    background:rgba(158,31,44,0.9);
+    color:#fff;
+    font-size:0.8rem;
+    font-weight:600;
+    padding:0.3rem 0.8rem;
+  }
+
+  /* ---------- CTA ---------- */
+  .cta{
+    background:var(--brand-red);
+    position:relative;
+    overflow:hidden;
+  }
+  .cta .chev-band{
+    position:absolute;
+    top:0; left:-10%;
+    width:40%; height:100%;
+    background:var(--mustard);
+    opacity:0.18;
+  }
+  .cta h2{
+    color:#fff;
+    font-weight:900;
+    font-size:2rem;
+  }
+  .cta p{ color:#f3ddd5; font-size:1.05rem; }
+  .btn-whatsapp{
+    background:var(--fresh-green);
+    color:#fff;
+    font-weight:600;
+    padding:0.65rem 1.6rem;
+    border:none;
+  }
+  .btn-whatsapp:hover{ background:#33622f; color:#fff; }
+  .btn-cream{
+    background:var(--cream);
+    color:var(--charcoal);
+    font-weight:700;
+    padding:0.65rem 1.6rem;
+    border:none;
+  }
+  .btn-cream:hover{ background:#fff; color:var(--brand-red); }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--charcoal);
+    color:#c9c2b8;
+    padding-top:3.5rem;
+  }
+  footer h5{
+    color:#fff;
+    font-weight:700;
+    font-size:1.05rem;
+    margin-bottom:1rem;
+  }
+  footer a{ color:#c9c2b8; }
+  footer a:hover{ color:var(--mustard); }
+  footer .foot-brand{
+    font-family:'Bitter', serif;
+    font-weight:900;
+    color:#fff;
+    font-size:1.4rem;
+  }
+  footer .foot-tagline{
+    background:var(--mustard);
+    color:var(--charcoal);
+    font-size:0.65rem;
+    font-weight:700;
+    letter-spacing:1px;
+    display:inline-block;
+    padding:1px 6px;
+    margin-top:4px;
+  }
+  .foot-map iframe{
+    width:100%;
+    height:220px;
+    border:0;
+    filter:grayscale(30%) contrast(1.05);
+  }
+  .bottom-bar{
+    border-top:1px solid #3a332e;
+    margin-top:3rem;
+    padding:1.2rem 0;
+    font-size:0.85rem;
+    text-align:center;
+    color:#8f8880;
+  }
+
+  /* ---------- Floating WhatsApp ---------- */
+  .float-whatsapp{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    width:58px;
+    height:58px;
+    background:var(--fresh-green);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-size:1.6rem;
+    box-shadow:0 6px 16px rgba(0,0,0,0.3);
+    z-index:1000;
+  }
+  .float-whatsapp:hover{ color:#fff; background:#33622f; }
+
+  @media (max-width: 767px){
+    .hero h1{ font-size:2rem; }
+    .hero{ padding:3.5rem 0 4.5rem; }
+    .about-visual::before{ display:none; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .gallery-item img{ transition:none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg navbar-home sticky-top py-3">
+  <div class="container">
+    <a class="navbar-brand" href="#top">
+      <img src="img/homeshoppe-logo.jpg" alt="" srcset="" height="44">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="#visit">Visit Us</a></li>
+        <li class="nav-item mt-2 mt-lg-0 ms-lg-2">
+          <a class="btn btn-directions" href="https://www.google.com/maps?q=Home+Shoppe+HRBR+Layout+Kalyan+Nagar+Bangalore" target="_blank">Get Directions</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO / BANNER ================= -->
+<header class="hero" id="top">
+  <div class="chev-decor chev1 chevron"></div>
+  <div class="chev-decor chev2 chevron"></div>
+  <div class="chev-decor chev3 chevron"></div>
+  <div class="container hero-content">
+    <div class="row">
+      <div class="col-lg-8">
+        <span class="hero-tagline">THE COMPLETE FAMILY SHOP</span>
+        <h1>Groceries, fresh essentials and everyday needs — all under one roof.</h1>
+        <p class="lead-text">Home Shoppe is Kalyan Nagar's neighbourhood supermarket, stocked with groceries, fresh produce, household essentials and personal care — so your family never has to make more than one stop.</p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a href="tel:+918025982662" class="btn btn-call"><i class="fa-solid fa-phone me-2"></i>Call Now</a>
+          <a href="https://www.google.com/maps?q=Home+Shoppe+HRBR+Layout+Kalyan+Nagar+Bangalore" target="_blank" class="btn btn-outline-cream"><i class="fa-solid fa-location-dot me-2"></i>Get Directions</a>
+        </div>
+        <p class="hero-address"><i class="fa-solid fa-map-pin"></i>#302, 9th Main, 1st Block, HRBR Layout, Kalyan Nagar, Bengaluru - 560043</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 about-text">
+        <p class="section-label">About Home Shoppe</p>
+        <h2 class="section-title">Your neighbourhood shop, run like family.</h2>
+        <p>Tucked into 9th Main in HRBR Layout, Home Shoppe has been the go-to supermarket for households across Kalyan Nagar looking for daily groceries without the drive to a big-box store. From pantry staples and fresh produce to household essentials and personal care, we keep the shelves stocked with what families actually reach for every day.</p>
+        <p>Our team knows the neighbourhood and the regulars by name — because a complete family shop isn't just about what's on the shelf, it's about the people behind the counter.</p>
+        <div class="mt-4">
+          <span class="tag-chip chevron-tag"><i class="fa-solid fa-basket-shopping"></i>Groceries</span>
+          <span class="tag-chip chevron-tag"><i class="fa-solid fa-carrot"></i>Fresh Produce</span>
+          <span class="tag-chip chevron-tag"><i class="fa-solid fa-house"></i>Household Essentials</span>
+          <span class="tag-chip chevron-tag"><i class="fa-solid fa-pump-soap"></i>Personal Care</span>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="about-visual">
+          <img src="https://images.unsplash.com/photo-1643430603795-b1c753fdbdcb?auto=format&fit=crop&w=900&q=80" alt="Supermarket aisles viewed from above">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <p class="section-label">Take a look inside</p>
+    <h2 class="section-title">Home Shoppe, aisle by aisle</h2>
+    <div class="row g-3 mt-2">
+      <div class="col-md-4">
+        <div class="gallery-item corner-cut">
+          <img src="https://images.unsplash.com/photo-1761281206511-cf440dbb4e6b?auto=format&fit=crop&w=700&q=80" alt="Grocery aisle">
+          <span class="cap">Grocery Aisles</span>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="gallery-item corner-cut">
+          <img src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&fit=crop&w=700&q=80" alt="Fresh vegetables on display">
+          <span class="cap">Fresh Produce</span>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="gallery-item corner-cut">
+          <img src="https://images.unsplash.com/photo-1635774855717-0aec182f92cc?auto=format&fit=crop&w=700&q=80" alt="Fresh fruits and vegetables basket">
+          <span class="cap">Fresh Fruits &amp; Veggies</span>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="gallery-item corner-cut">
+          <img src="https://images.unsplash.com/photo-1534723452862-4c874018d66d?auto=format&fit=crop&w=700&q=80" alt="Packaged groceries shelf">
+          <span class="cap">Pantry Staples</span>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="gallery-item corner-cut">
+          <img src="https://images.unsplash.com/photo-1650964336589-96b3f1719a7b?auto=format&fit=crop&w=700&q=80" alt="Household and cleaning essentials">
+          <span class="cap">Household Essentials</span>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="gallery-item corner-cut">
+          <img src="https://images.unsplash.com/photo-1717568511299-003b41c20816?auto=format&fit=crop&w=700&q=80" alt="Trolleys ready for shopping">
+          <span class="cap">Ready to Shop</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta" id="visit">
+  <div class="chev-band chevron"></div>
+  <div class="container position-relative">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-7">
+        <h2>Drop by Home Shoppe today.</h2>
+        <p>Open through the week for all your family's grocery and household needs. Call ahead, WhatsApp us your list, or just walk in.</p>
+      </div>
+      <div class="col-lg-5">
+        <div class="d-flex flex-wrap gap-3 justify-content-lg-end">
+          <a href="tel:+918025982662" class="btn btn-cream"><i class="fa-solid fa-phone me-2"></i>Call Us</a>
+          <a href="https://wa.me/916360061050" target="_blank" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp me-2"></i>WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <img src="img/homeshoppe-logo.jpg" alt="" srcset="" height="44">
+        <p class="mt-3">Your neighbourhood supermarket in HRBR Layout, Kalyan Nagar — groceries, fresh produce and everyday essentials, all under one roof.</p>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a href="#about">About</a></li>
+          <li class="mb-2"><a href="#gallery">Gallery</a></li>
+          <li class="mb-2"><a href="#visit">Visit Us</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-6">
+        <h5>Contact</h5>
+        <ul class="list-unstyled">
+          <li class="mb-2"><i class="fa-solid fa-phone me-2"></i><a href="tel:+918025982662">080-2598 2662</a></li>
+          <li class="mb-2"><i class="fa-solid fa-phone me-2"></i><a href="tel:+914163 0131">4163 0131</a></li>
+          <li class="mb-2"><i class="fa-brands fa-whatsapp me-2"></i><a href="https://wa.me/916360061050">63600 61050</a></li>
+          <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i><a href="mailto:homeshoppe99@gmail.com">homeshoppe99@gmail.com</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h5>Find Us</h5>
+        <div class="foot-map corner-cut">
+          <iframe src="https://www.google.com/maps?q=HRBR%20Layout%201st%20Block%20Kalyan%20Nagar%20Bangalore%20560043&output=embed" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <p class="mt-2 small">#302, 9th Main, 1st Block, HRBR Layout, Kalyan Nagar, Bengaluru - 560043</p>
+      </div>
+    </div>
+    <div class="bottom-bar">
+      &copy; <span id="year"></span> Home Shoppe. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/916360061050" target="_blank" class="float-whatsapp" aria-label="Chat on WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
