@@ -357,10 +357,10 @@
       statusLine.textContent = 'Rep ' + count + ' of ' + REPS_PER_SET;
       timerId = setTimeout(tick, TICK_MS);
     } else {
-      // 10th rep: call out the SET NUMBER instead of "10"
+      // 10th rep: count it normally, then the set is done
       beep(660, 0.12, 'triangle');
       beep(880, 0.16, 'triangle', 0.14);
-      speak(String(curSet));
+      speak(String(count));
       statusLine.textContent = 'Set ' + curSet + ' done';
       timerId = setTimeout(advanceSet, SET_GAP_MS);
     }
@@ -405,7 +405,7 @@
     setsValueEl.textContent = totalSets;
   });
   incSetsBtn.addEventListener('click', function(){
-    totalSets = Math.min(20, totalSets + 1);
+    totalSets = Math.min(30, totalSets + 1);
     setsValueEl.textContent = totalSets;
   });
 
